@@ -19,7 +19,7 @@ router.get('/walkers', (req, res) => {
 router.post('/walkers', (req, res) => {
   var db = req.app.get('db')
   var walker = req.body
-  console.log('is a walker', walker);
+  //console.log('is a walker', walker);
   walker.user_id = req.user.id
   walkerdb.insertWalker(walker, db)
     .then(response =>{
