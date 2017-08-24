@@ -23,10 +23,10 @@ const Navbar = ({ isAuthenticated }) => {
                   <LoginForm />
                 </div>
               )} />
-            <Route path='/registerform' render={() => (
+            <Route path='/registerform' render={({history}) => (
                 <div>
                   <Links active='Register' />
-                  <RegisterForm />
+                  <RegisterForm history={history}/>
                 </div>
               )} />
             </div>

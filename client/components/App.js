@@ -13,7 +13,7 @@ const App = () => {
         <Router>
           <div>
             <Route exact path='/walkrequest' component={WalkRequest} />
-
+            <Route exact path='/register' component={Register} />
           </div>
         </Router>
 

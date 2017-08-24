@@ -26,6 +26,6 @@ export function logoutUser () {
     dispatch(requestLogout())
     removeUser()
     dispatch(receiveLogout())
+    document.location='/#/registerform'
   }
 }
-

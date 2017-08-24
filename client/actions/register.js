@@ -23,7 +23,7 @@ export function registerError (message) {
   }
 }
 
-export function registerUser (creds) {
+export function registerUser (creds,callback) {
   return dispatch => {
     // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestRegister(creds))
@@ -40,9 +40,10 @@ export function registerUser (creds) {
           const userInfo = saveUserToken(response.body.token)
           // Dispatch the success action
           dispatch(receiveLogin(userInfo))
+          callback()
         }
       }).catch(err => {
-        dispatch(registerError(err.response.body.message))
+        dispatch(registerError(err.message))
       })
   }
 }
