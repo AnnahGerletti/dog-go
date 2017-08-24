@@ -4,3 +4,6 @@ dev.sqlite3
 .env
 bundle*
 .vscode
+npm-debug.log
+bundle.js.map
+static
