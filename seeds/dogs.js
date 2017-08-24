@@ -1,11 +1,10 @@
-
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('walkers').del()
+  return knex('dogs').del()
     .then(function () {
       // Inserts seed entries
       return knex('walkers').insert([
-        {id: 1, name: "John", address: "123 Square Rd", phone:"555-5555", postCode:"6011", email:"John@example.com", user_id:""}
+        {id: 1, name: "Snowy", breed: "Terrier", age:"5", colour:"white", owner_id: "1"}
       ]);
     });
 };

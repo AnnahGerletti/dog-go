@@ -27,6 +27,21 @@ router.post('/secret', (req, res) => {
 })
 
 
+// These routes are protected
+router.post('/secret', (req, res) => {
+  var db = req.app.get('db')
+  var owner = req.body.owner
+  owner.user_id = req.user.id
+  db("owners").insert(owner)
+  .then(response => {
+    console.log(response);
+    res.sendStatus(201)
+  }
+})
+
+
+
+
 
 
 module.exports = router
