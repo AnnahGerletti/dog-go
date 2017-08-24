@@ -6,10 +6,14 @@
   "scripts": {
     "start": "node server",
     "dev": "nodemon --watch server & webpack --watch",
-    "knex": "knex",
     "postinstall": "knex migrate:latest && webpack",
     "test": "ava",
-    "test:watch": "ava --watch"
+    "test:watch": "ava --watch",
+    "h:deploy": "git push heroku master",
+    "h:migrate": "heroku run knex migrate:latest",
+    "h:rollback": "heroku run knex migrate:rollback",
+    "h:seed": "heroku run knex seed:run",
+    "knex": "knex"
   },
   "author": "EDA",
   "license": "ISC",
@@ -47,7 +51,6 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.2.0",
     "sodium": "^2.0.1",
-    "sqlite3": "^3.1.9",
     "superagent": "^3.5.2",
     "webpack": "^2.6.1"
   },
@@ -56,7 +59,9 @@
     "enzyme": "^2.9.1",
     "nodemon": "^1.11.0",
     "supertest": "^2.0.1",
-    "webpack-livereload-plugin": "^0.11.0"
+    "webpack-livereload-plugin": "^0.11.0",
+    "sqlite3": "^3.1.9"
+
   },
   "ava": {
     "require": [
