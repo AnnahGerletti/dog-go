@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import WalkRequest from './WalkRequest'
+import Register from './Register'
 import { HashRouter as Router, Route } from 'react-router-dom'
 const App = () => {
   return (
@@ -9,7 +10,13 @@ const App = () => {
 
       <Navbar />
       <div className='quote'>
-        <Route exact path='/walkrequest' component={WalkRequest}>Login</Route>
+        <Router>
+          <div>
+            <Route exact path='/walkrequest' component={WalkRequest} />
+    
+          </div>
+        </Router>
+
       </div>
     </div>
   )
