@@ -4,10 +4,10 @@
   "description": "Local Passport strategy boilerplate using libsodium and JWTs",
   "main": "server/index.js",
   "scripts": {
+    "start": "node server",
     "dev": "nodemon --watch server & webpack --watch",
     "knex": "knex",
     "postinstall": "knex migrate:latest && webpack",
-    "start": "node server",
     "test": "ava",
     "test:watch": "ava --watch"
   },
@@ -39,6 +39,7 @@
     "knex": "^0.12.6",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "pg": "^7.2.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
