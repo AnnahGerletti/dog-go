@@ -47,6 +47,7 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.2.0",
     "sodium": "^2.0.1",
+    "sqlite3": "^3.1.9",
     "superagent": "^3.5.2",
     "webpack": "^2.6.1"
   },
@@ -54,7 +55,6 @@
     "ava": "^0.17.0",
     "enzyme": "^2.9.1",
     "nodemon": "^1.11.0",
-    "sqlite3": "^3.1.8",
     "supertest": "^2.0.1",
     "webpack-livereload-plugin": "^0.11.0"
   },
