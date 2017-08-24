@@ -12,4 +12,3 @@ const Links = ({ active }) => {
 }
 
 export default Links
-
