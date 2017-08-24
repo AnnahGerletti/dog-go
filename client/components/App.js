@@ -6,14 +6,14 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 const App = () => {
   return (
     <div>
-      <h1>Quotes</h1>
+      <h1>Dog-go</h1>
 
       <Navbar />
       <div className='quote'>
         <Router>
           <div>
             <Route exact path='/walkrequest' component={WalkRequest} />
-
+            <Route exact path='/register' component={Register} />
           </div>
         </Router>
 

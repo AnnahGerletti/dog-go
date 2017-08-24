@@ -5,7 +5,7 @@ import { Route, withRouter } from 'react-router-dom'
 import Links from './Links'
 import Logout from './Logout'
 import LoginForm from './LoginForm'
-import Register from './Register'
+import RegisterForm from './RegisterForm'
 
 const Navbar = ({ isAuthenticated }) => {
   return (
@@ -23,10 +23,10 @@ const Navbar = ({ isAuthenticated }) => {
                   <LoginForm />
                 </div>
               )} />
-            <Route path='/register' render={() => (
+            <Route path='/registerform' render={({history}) => (
                 <div>
                   <Links active='Register' />
-                  <Register />
+                  <RegisterForm history={history}/>
                 </div>
               )} />
             </div>
