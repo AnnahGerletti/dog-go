@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('breed')
     table.string('age')
     table.string('colour')
+    table.string('owner_id')
   })
 };
 
