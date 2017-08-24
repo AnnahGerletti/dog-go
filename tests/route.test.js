@@ -8,7 +8,7 @@ var setupDb = require('./setup-db')
 
 setupDb(test,createServer)
 
-test.only.cb('GET /', t => {
+test.cb('GET /', t => {
   request(t.context.app)
     .get('api/v1/secrets')
     .expect(403)
