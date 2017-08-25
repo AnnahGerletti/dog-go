@@ -21,12 +21,13 @@ function getSecret (req, payload, done) {
   done(null, process.env.JWT_SECRET)
 }
 // Protect all routes beneath this point
-// server.use(
-//   verifyJwt({
-//     secret: getSecret
-//   }),
-//   auth.handleError
-// )
+server.use(
+  verifyJwt({
+    credentialsRequired: false,
+    secret: getSecret
+  }),
+  auth.handleError
+)
 
 server.use('/api/v1/', walkerRoute)
 
