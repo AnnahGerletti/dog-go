@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import { Link } from 'react-router-dom'
 import { loginUser } from '../actions/login'
 import ErrorMessage from './ErrorMessage'
 
@@ -36,7 +36,7 @@ class LoginForm extends Component {
       <div>
         <p><input name='username' onChange={this.handleChange} placeholder='Username' /></p>
         <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password' /></p>
-        <button onClick={this.handleClick}>Login</button>
+        <button onClick={this.handleClick}><Link to='/walkrequest'>Login</Link></button>
         <ErrorMessage reducer='auth' />
       </div>
     )

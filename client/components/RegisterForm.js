@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+
 import { registerUser, registerError } from '../actions/register'
 import ErrorMessage from './ErrorMessage'
 
@@ -33,7 +34,9 @@ class RegisterForm extends Component {
       username: username.trim(),
       password: password.trim()
     }
-    this.props.registerUser(creds)
+    this.props.registerUser(creds, () =>{
+      this.props.history.push('/register')
+    })
   }
 
   render () {
@@ -61,8 +64,8 @@ class RegisterForm extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    registerUser: (creds) => {
-      return dispatch(registerUser(creds))
+    registerUser: (creds, callback) => {
+      return dispatch(registerUser(creds, callback))
     },
     registerError: (message) => {
       dispatch(registerError(message))

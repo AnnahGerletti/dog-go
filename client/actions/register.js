@@ -23,7 +23,7 @@ export function registerError (message) {
   }
 }
 
-export function registerUser (creds) {
+export function registerUser (creds,callback) {
   return dispatch => {
     // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestRegister(creds))
@@ -40,9 +40,49 @@ export function registerUser (creds) {
           const userInfo = saveUserToken(response.body.token)
           // Dispatch the success action
           dispatch(receiveLogin(userInfo))
+          callback()
         }
       }).catch(err => {
-        dispatch(registerError(err.response.body.message))
+        dispatch(registerError(err.message))
+      })
+  }
+}
+
+export const addWalkerRequest = (walker) => {
+  return {
+    type: 'ADD_WALKER',
+    walker
+  }
+}
+
+export function postWalkerRequest (walker) {
+  return (dispatch) => {
+    return request('post', '/walkers', walker)
+      .then(res => {
+        dispatch(addWalkerRequest(res.body))
+      })
+      .catch(err => {
+        console.error(err.message)
+        return
+      })
+  }
+}
+
+export const addOwnerRequest =(owner) => {
+  return{
+    type: 'ADD_OWNER',
+    owner
+  }
+}
+export function postOwnerRequest (owner) {
+  return(dispatch) => {
+    return request('post', '/owners', owner)
+      .then(res => {
+        dispatch(addOwnerRequest(res.body))
+      })
+      .catch(err => {
+        console.error(err.message)
+        return
       })
   }
 }
