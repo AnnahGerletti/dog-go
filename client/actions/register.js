@@ -57,16 +57,14 @@ export const addWalkerRequest = (walker) => {
 
 export function postWalkerRequest (walker) {
   return (dispatch) => {
-    request
-    .post('/api/v1/walkers')
-    .send(walker)
-    .end((err, res) => {
-      if (err) {
+    return request('post', '/walkers', walker)
+      .then(res => {
+        dispatch(addWalkerRequest(res.body))
+      })
+      .catch(err => {
         console.error(err.message)
         return
-      }
-      dispatch(addWalkerRequest(res.body))
-    })
+      })
   }
 }
 
@@ -79,15 +77,13 @@ export const addOwnerRequest =(owner) => {
 export function postOwnerRequest (owner) {
   console.log('hi', owner)
   return(dispatch) => {
-    request
-    .post('/api/v1/owners')
-    .send(owner)
-    .end((err, res) =>{
-      if(err) {
+    return request('post', '/owners', owner)
+      .then(res => {
+        dispatch(addOwnerRequest(res.body))
+      })
+      .catch(err => {
         console.error(err.message)
         return
-      }
-      dispatch(addOwnerRequest(res.body))
-    })
+      })
   }
 }
