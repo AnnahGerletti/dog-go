@@ -42,7 +42,7 @@ class RegisterForm extends Component {
   render () {
     const { username, password, confirm } = this.state
     return (
-      <div>
+      <div className="registerUser">
         <p><input name='username' placeholder='Username'
           onChange={this.handleChange} value={username} /></p>
 

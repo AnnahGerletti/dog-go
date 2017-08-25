@@ -7,9 +7,10 @@ import OwnerForm from './OwnerForm'
 import { HashRouter as Router, Route } from 'react-router-dom'
 const App = () => {
   return (
-    <div>
-      <h1>Dog-go</h1>
+    <div className="container">
 
+
+      <div className="logo"></div>
       <Navbar />
       <div className='quote'>
         <Router>
