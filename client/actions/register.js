@@ -76,7 +76,7 @@ export const addOwnerRequest =(owner) => {
 }
 export function postOwnerRequest (owner) {
   return(dispatch) => {
-    return request('post', '/owners', owner)
+    return request('post', '/owner', owner)
       .then(res => {
         dispatch(addOwnerRequest(res.body))
       })
