@@ -9,7 +9,7 @@ function getWalkers(body, db){
     .select()
 }
 
-function getWalker(db,id){
+function getWalker(id, db){
   return db('walkers')
     .where('id', id)
 }
