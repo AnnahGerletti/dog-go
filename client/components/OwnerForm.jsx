@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import {Link} from 'react-router-dom'
 import {postOwnerRequest} from '../actions/register'
 
 class OwnerForm extends React.Component {
@@ -29,14 +29,16 @@ class OwnerForm extends React.Component {
     const {name, address, phone, postCode, email}=this.state
     return(
       <div>
+        <h1>Sign up as an Owner</h1>
         <form>
           <input name="name" placeholder="name" onChange={this.handleChange} value={name} />
           <input name="address" placeholder="address" onChange={this.handleChange} value={address} />
           <input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} />
           <input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} />
           <input name="email" placeholder="email" onChange={this.handleChange} value={email} />
-          <input type="submit" />
+          <input type="submit" onClick={this.submitOwner.bind(this)}/>
         </form>
+        <Link to="/register">Cancel</Link>
       </div>
     )
   }

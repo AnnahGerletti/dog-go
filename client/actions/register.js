@@ -47,3 +47,47 @@ export function registerUser (creds,callback) {
       })
   }
 }
+
+export const addWalkerRequest = (walker) => {
+  return {
+    type: 'ADD_WALKER',
+    walker
+  }
+}
+
+export function postWalkerRequest (walker) {
+  return (dispatch) => {
+    request
+    .post('/api/v1/walkers')
+    .send(walker)
+    .end((err, res) => {
+      if (err) {
+        console.error(err.message)
+        return
+      }
+      dispatch(addWalkerRequest(res.body))
+    })
+  }
+}
+
+export const addOwnerRequest =(owner) => {
+  return{
+    type: 'ADD_OWNER',
+    owner
+  }
+}
+export function postOwnerRequest (owner) {
+  console.log('hi', owner)
+  return(dispatch) => {
+    request
+    .post('/api/v1/owners')
+    .send(owner)
+    .end((err, res) =>{
+      if(err) {
+        console.error(err.message)
+        return
+      }
+      dispatch(addOwnerRequest(res.body))
+    })
+  }
+}

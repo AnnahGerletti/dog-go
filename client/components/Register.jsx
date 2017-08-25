@@ -19,6 +19,9 @@ export default function walkerOwner(){
       <div className='ownerButton'>
         <Link to='/register/owner'>Owner</Link>
       </div>
+      <div className="backButton">
+        <Link to="/">Cancel</Link>
+      </div>
     </div>
   )
 }

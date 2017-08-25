@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import {Link} from 'react-router-dom'
 import {postWalkerRequest} from '../actions/register'
 
 class WalkerForm extends React.Component {
@@ -24,18 +24,20 @@ class WalkerForm extends React.Component {
       this.props.dispatch(postWalkerRequest(this.state.newWalker))
   }
 render (){
-  console.log(this.state.newWalker);
   const {name, address, phone, postCode, email} =this.state
   return(
     <div>
+      <h1>Sign up as a Walker</h1>
       <form>
         <input name="name" placeholder="name" onChange={this.handleChange} value={name} />
         <input name="address" placeholder="address" onChange={this.handleChange} value={address} />
         <input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} />
         <input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} />
         <input name="email" placeholder="email" onChange={this.handleChange} value={email} />
-        <input type='submit'/>
+        <input type='submit'onClick={this.submitWalker.bind(this)}/>
       </form>
+      <Link to="/register">Cancel</Link>
+
     </div>
   )
 }
