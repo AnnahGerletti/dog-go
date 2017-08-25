@@ -20,3 +20,10 @@ test('state adds a walker', t => {
 
   t.deepEqual(actual, expected)
 })
+
+// test('state adds an owner', t => {
+//   const state = []
+//   const action = {
+//
+//   }
+// })
