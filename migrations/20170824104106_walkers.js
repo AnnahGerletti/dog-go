@@ -10,7 +10,7 @@ exports.up = function(knex, Promise) {
   })
 };
 
-//user_id unique has to be entered or given via token and can not be null 
+//user_id unique has to be entered or given via token and can not be null
 
 exports.down = function(knex, Promise) {
   return knex.schema.dropTableIfExists('walkers')
