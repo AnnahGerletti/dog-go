@@ -28,13 +28,13 @@ render (){
   return(
     <div>
       <h1>Sign up as a Walker</h1>
-      <form>
-        <input name="name" placeholder="name" onChange={this.handleChange} value={name} />
-        <input name="address" placeholder="address" onChange={this.handleChange} value={address} />
-        <input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} />
-        <input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} />
-        <input name="email" placeholder="email" onChange={this.handleChange} value={email} />
-        <input type='submit'onClick={this.submitWalker.bind(this)}/>
+      <form className='walkerForm'>
+        <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
+        <p><input name="address" placeholder="address" onChange={this.handleChange} value={address} /></p>
+        <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
+        <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
+        <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
+        <p><input type="submit" onClick={this.submitWalker.bind(this)}/></p>
       </form>
       <Link to="/register">Cancel</Link>
 
