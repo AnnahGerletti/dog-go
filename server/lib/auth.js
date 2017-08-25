@@ -74,5 +74,6 @@ function verify (username, password, done) {
 module.exports = {
   handleError,
   issueJwt,
-  verify
+  verify,
+  createToken
 }

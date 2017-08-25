@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('walkers').insert([
-        {id: 1, name: "John", address: "123 Square Rd", phone:"555-5555", postCode:"6011", email:"John@example.com", user_id:""}
+        {id: 1, name: "John", address: "123 Square Rd", phone:"555-5555", postCode:"6011", email:"John@example.com", user_id:"2"}
       ]);
     });
 };
