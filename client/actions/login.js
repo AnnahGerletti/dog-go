@@ -13,7 +13,7 @@ function requestLogin () {
   }
 }
 
-function receiveLogin (user) {
+export function receiveLogin (user) {
   return {
     type: LOGIN_SUCCESS,
     isFetching: false,

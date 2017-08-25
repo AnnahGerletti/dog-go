@@ -4,12 +4,16 @@
   "description": "Local Passport strategy boilerplate using libsodium and JWTs",
   "main": "server/index.js",
   "scripts": {
-    "dev": "nodemon --watch server & webpack --watch",
-    "knex": "knex",
-    "postinstall": "knex migrate:latest && webpack",
     "start": "node server",
-    "test": "ava",
-    "test:watch": "ava --watch"
+    "dev": "nodemon --watch server & webpack --watch",
+    "postinstall": "knex migrate:latest && webpack",
+    "test": "ava --verbose",
+    "test:watch": "ava --watch",
+    "h:deploy": "git push heroku master",
+    "h:migrate": "heroku run knex migrate:latest",
+    "h:rollback": "heroku run knex migrate:rollback",
+    "h:seed": "heroku run knex seed:run",
+    "knex": "knex"
   },
   "author": "EDA",
   "license": "ISC",
@@ -40,6 +44,7 @@
     "knex": "^0.12.6",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "pg": "^7.2.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
@@ -49,14 +54,14 @@
     "sodium": "^2.0.1",
     "sqlite3": "3.1.8",
     "superagent": "^3.5.2",
-    "supertest": "^2.0.1",
     "webpack": "^2.6.1"
   },
   "devDependencies": {
     "ava": "^0.17.0",
+    "enzyme": "^2.9.1",
     "nodemon": "^1.11.0",
-    "sqlite3": "^3.1.8",
     "supertest": "^2.0.1",
+    "sqlite3": "^3.1.9",
     "webpack-livereload-plugin": "^0.11.0"
   },
   "ava": {
