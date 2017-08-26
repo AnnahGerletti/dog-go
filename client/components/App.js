@@ -4,6 +4,7 @@ import WalkRequest from './WalkRequest'
 import Register from './Register'
 import WalkerForm from './WalkerForm'
 import OwnerForm from './OwnerForm'
+import DogForm from './DogForm'
 import { HashRouter as Router, Route } from 'react-router-dom'
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route exact path='/register' component={Register} />
             <Route exact path='/register/walker' component={WalkerForm} />
             <Route exact path='/register/owner' component={OwnerForm} />
+            <Route exact path= '/register/dog' component={DogForm} />
           </div>
         </Router>
 
