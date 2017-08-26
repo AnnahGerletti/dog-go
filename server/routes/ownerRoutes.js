@@ -18,13 +18,12 @@ const ownerDb = require('../db/ownersdb')
 
 // These routes are protected
 router.post('/owners', (req, res) => {
-  console.log(req.body)
   var db = req.app.get('db')
   var owner = req.body
   owner.user_id = req.user.id
   ownerDb.insertOwners(owner, db)
   .then(response => {
-    res.sendStatus(201).json(response)
+    res.status(201).json(response)
   })
   .catch((err) => {
     res.status(500).send(err.message)
