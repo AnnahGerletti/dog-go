@@ -8,10 +8,10 @@ import DogForm from './DogForm'
 import { HashRouter as Router, Route } from 'react-router-dom'
 const App = () => {
   return (
-    <div>
-      <h1>Dog-go</h1>
-
-      <Navbar />
+    <div className="container">
+      <div className="logo"></div>
+      <h1 className="title">Dog-Go</h1>
+    <Navbar />
       <div className='quote'>
         <Router>
           <div>
@@ -22,8 +22,8 @@ const App = () => {
             <Route exact path= '/register/dog' component={DogForm} />
           </div>
         </Router>
-
       </div>
+      <div className="footer">By Mike Keogh, Annah Gerletti, Anthony Martin and Tom Revill.</div>
     </div>
   )
 }
