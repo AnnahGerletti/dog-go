@@ -32,3 +32,15 @@ test('state adds an owner', t => {
 
   t.deepEqual(actual, expected)
 })
+
+test('state adds a dog', t => {
+  const state = []
+  const action = {
+    type: 'ADD_DOG',
+    dog: {name: 'spot'}
+  }
+  const expected = [{name: 'spot'}]
+  const actual = register(state, action)
+
+  t.deepEqual(actual, expected)
+})
