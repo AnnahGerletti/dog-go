@@ -7,7 +7,7 @@ const setupdb = require('./setup-db')
 
 setupdb(test, createServer)
 
-test.cb.only('Authenticate walkers route(All Walkers)', t => {
+test.cb('Authenticate walkers route', t => {
 
   request(t.context.app)
 
@@ -17,7 +17,7 @@ test.cb.only('Authenticate walkers route(All Walkers)', t => {
     .expect(201)
 
     .end((err, res) => {
-      console.log("res : ",res.body, res.status)
+      //console.log("res : ",res.body, res.status)
       t.context.db('walkers').where('user_id', 3).first()
         .then((walker) => {
           t.is(walker.name, 'mary')
