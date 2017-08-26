@@ -37,23 +37,4 @@ router.get('/walker/:id', (req, res) => {
   })
 })
 
-// Protect all routes beneath this point
-
-// router.use(
-//   verifyJwt({
-//     secret: getSecret
-//   }),
-//   auth.handleError
-// )
-
-
-
-
-//
-
-
-// These routes are protected
-
-
-
 module.exports = router
