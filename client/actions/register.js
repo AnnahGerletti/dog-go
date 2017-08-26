@@ -89,7 +89,7 @@ export function postOwnerRequest (owner) {
 
 export const addDogDetails = (dog) => {
   return{
-    type: 'ADD_DOG'.
+    type: 'ADD_DOG',
     dog
   }
 }

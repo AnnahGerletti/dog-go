@@ -12,7 +12,7 @@ const App = () => {
       <h1>Dog-go</h1>
 
       <Navbar />
-      <div className='quote'>
+      <div className='routes'>
         <Router>
           <div>
             <Route exact path='/walkrequest' component={WalkRequest} />

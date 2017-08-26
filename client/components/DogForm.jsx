@@ -14,7 +14,7 @@ class DogForm extends React.Component {
   handleChange(e) {
     const newDog = this.state.newDog
     newDog[e.target.name] =e.target.value
-    this.setstate({
+    this.setState({
       newDog: newDog
     })
   }
