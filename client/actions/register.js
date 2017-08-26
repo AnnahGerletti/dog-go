@@ -86,3 +86,23 @@ export function postOwnerRequest (owner) {
       })
   }
 }
+
+export const addDogDetails = (dog) => {
+  return{
+    type: 'ADD_DOG',
+    dog
+  }
+}
+
+export function postDogDetails (dog) {
+  return(dispatch) => {
+    return request('post', '/dog', dog)
+      .then(res =>{
+        dispatch(addDogDetails(req.body))
+      })
+      .catch(err =>{
+        console.error(err.message)
+        return
+      })
+  }
+}

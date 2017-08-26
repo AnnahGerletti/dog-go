@@ -1,5 +1,7 @@
 function insertWalker (walker ,db) {
-  return db ('walkers')
+  console.log('walker 1', walker);
+  return db('walkers')
+    .select()
     .insert(walker)
 }
 
