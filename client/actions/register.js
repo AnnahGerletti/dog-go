@@ -68,14 +68,14 @@ export function postWalkerRequest (walker) {
   }
 }
 
-export const addOwnerRequest =(owner) => {
-  return{
+export const addOwnerRequest = (owner) => {
+  return {
     type: 'ADD_OWNER',
     owner
   }
 }
 export function postOwnerRequest (owner) {
-  return(dispatch) => {
+  return (dispatch) => {
     return request('post', '/owners', owner)
       .then(res => {
         dispatch(addOwnerRequest(res.body))

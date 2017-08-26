@@ -1,8 +1,7 @@
 const insertOwners = (owner ,db) => {
-  return db ('owners')
+  return db('owners')
     .insert(owner)
 }
-
 
 function getOwners(db){
   return db('owners')
@@ -13,7 +12,6 @@ function getOwner(db,id){
   return db('owners')
     .where('id', id)
 }
-
 
 module.exports = {
    insertOwners,
