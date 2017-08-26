@@ -1,33 +1,120 @@
-body{
-  background-color:#20273A;
+body {
+  background-color: #20273A;
   margin: 0 auto;
   text-align: center;
-  color:#fff;
+  color: #fff;
+  font-family: sans-serif;
 }
 
-nav{
+nav {
   margin: 0 auto;
 }
 
-a{
-  color:#000;
-  padding:10px;
-  background-color:#fff;
-  cursor:pointer;
+a, .button, button {
+  color: #000;
+  padding: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-left: 30px;
+  border-style: solid;
 }
 
-.logo{
-  background-image: url('../images/dog_logo.jpg');
-  background-size: 400px 400px;
+a:first-child, .button:first-child, button:first-child {
+  margin-left:0;
+}
+.loneButton {
+    margin-top: 3%;
+}
+.loneButton {
+    margin-top: 2%;
+    display: inline-block;
+    margin-left:0!important;
+}
+
+.NoLeftButton{
+  margin-left:0!important;
+}
+
+    display: inline-block;
+    margin-left:0!important;
+}
+
+.NoLeftButton{
+  margin-left:0!important;
+}
+
+.title {
+  font-family: 'Lobster', cursive;
+  padding-bottom: 45px;
+  padding-top: 0;
+}
+
+p.ErrorMessage {
+  color: #000;
+  padding: 10px;
+  color: #be0d0d;
+  font-weight: bolder;
+}
+
+input {
+  border-radius: 10px;
+  width: 60%;
+  font-size: 20px;
+  padding: 5px;
+  border-style: double;
+  color: #000;
+  max-width: 600px;
+}
+
+.container {
+  /*width: 375px;*/
+}
+
+.RegButtonsCon{
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.registerUser {
+  padding-top: 25px;
+}
+
+
+
+.RegButton {
+  margin-top: 10px;
+  display: inline;
+  float: left;
+  padding: 16px;
+}
+
+.RegButton:last-child {
+  margin-left: 11%;
+}
+
+.cancelButton {
+  margin-top: 30%;
+}
+
+.logo {
+  background-image: url(../images/dog_logo_no_logo.jpg);
+  background-size: 250px;
   background-position: center;
   background-repeat: no-repeat;
-  height: 400px;
-
+  height: 220px;
+  margin-top: 30px;
 }
 
-.button {
-  color:#000;
-  padding:10px;
-  background-color:#fff;
-  cursor:pointer;
+
+.footer {
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em;
+  padding: 10px;
+  text-align: center;
+  background-color: #fff;
+  color: #000;
 }

@@ -8,10 +8,9 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 const App = () => {
   return (
     <div className="container">
-
-
       <div className="logo"></div>
-      <Navbar />
+      <h1 className="title">Dog-Go</h1>
+    <Navbar />
       <div className='quote'>
         <Router>
           <div>
@@ -21,8 +20,8 @@ const App = () => {
             <Route exact path='/register/owner' component={OwnerForm} />
           </div>
         </Router>
-
       </div>
+      <div className="footer">By Mike Keogh, Annah Gerletti, Anthony Martin and Tom Revill.</div>
     </div>
   )
 }

@@ -36,8 +36,8 @@ class LoginForm extends Component {
       <div>
         <p><input name='username' onChange={this.handleChange} placeholder='Username' /></p>
         <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password' /></p>
-        <Link to='/walkrequest' onClick={this.handleClick}>Login</Link>
-        <ErrorMessage reducer='auth' />
+        <Link to='/walkrequest' className="NoLeftButton loneButton" onClick={this.handleClick}>Login</Link>
+        <ErrorMessage reducer='auth'/>
       </div>
     )
   }

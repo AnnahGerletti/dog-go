@@ -31,12 +31,9 @@ const Navbar = ({ isAuthenticated }) => {
               )} />
             </div>
           )}
-
           {isAuthenticated &&
             <Logout />
           }
-
-
         </div>
       </div>
     </nav>

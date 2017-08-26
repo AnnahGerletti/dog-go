@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const ErrorMessage = (props) => {
   return (
-    <p>{props.message}</p>
+    <p className="ErrorMessage">{props.message}</p>
   )
 }
 
