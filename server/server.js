@@ -7,6 +7,7 @@ const verifyJwt = require('express-jwt')
 const auth = require('./lib/auth')
 const apiRoutes = require('./routes/api')
 const walkerRoute = require('./routes/walkerRoute')
+const ownerRoute = require('./routes/ownerRoutes')
 
 const server = express()
 
@@ -30,6 +31,7 @@ server.use(
 )
 
 server.use('/api/v1/', walkerRoute)
+server.use('/api/v1/', ownerRoute)
 
 
 passport.use(new LocalStrategy(auth.verify))

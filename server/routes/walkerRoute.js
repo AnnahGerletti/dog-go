@@ -9,7 +9,6 @@ const router = express.Router()
 router.use(bodyParser.json())
 
 router.get('/walkers', (req, res) => {
-  console.log('hi');
   var db = req.app.get('db')
   walkerdb.getWalkers(req.body, db)
   .then(function(data){
@@ -17,12 +16,10 @@ router.get('/walkers', (req, res) => {
   })
 })
 
-router.post('/walker', (req, res) => {
+router.post('/walkers', (req, res) => {
   var db = req.app.get('db')
-  //console.log(req.body)
   var walker = req.body
   walker.user_id = req.user.id
-  //console.log("Walker form data :", walker)
   walkerdb.insertWalker(walker, db)
     .then(response =>{
       res.status(201).json(response)

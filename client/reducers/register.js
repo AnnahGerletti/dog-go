@@ -1,4 +1,4 @@
-export default function register (state = null, action) {
+export default function register (state = [], action) {
   switch (action.type) {
     case 'ADD_WALKER':
       return [...state, action.walker]
