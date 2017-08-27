@@ -8,16 +8,6 @@ router.use(bodyParser.json())
 
 const ownerDb = require('../db/ownersdb')
 
-// Protect all routes beneath this point
-// router.use(
-//   verifyJwt({
-//     secret: getSecret
-//   }),
-//   auth.handleError
-// )
-
-// These routes are protected
-
 router.get('/owners', (req, res) => {
   var db = req.app.get('db')
   var owner = req.body
