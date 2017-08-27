@@ -25,7 +25,6 @@ class WalkRequest extends React.Component {
 
 
 function mapStateToProps(state) {
-  console.log(state);
   return {receive: state.receive}
 }
 

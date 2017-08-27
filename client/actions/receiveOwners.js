@@ -2,7 +2,6 @@ import request from '../utils/api'
 
 
 export function receiveOwnersAction(owner) {
-  console.log('action', owner);
   return{
     type: 'RECEIVE_OWNERS',
     owner
