@@ -52,7 +52,7 @@ class RegisterForm extends Component {
         <p><input type='password' name='confirm' placeholder='Confirm'
           onChange={this.handleChange} value={confirm} /></p>
 
-        <Link to="#" className="NoLeftButton loneButton"onClick={(e) => this.handleClick(e)}>
+        <Link to="#" className="NoLeftButton loneButton"onClick={(e) => this.handleClick(e)} replace>
           Register
         </Link>
 
