@@ -16,7 +16,7 @@ function insertWithUserId(db, user_id, dog) {
     })
     .catch(err => console.log(err))
 }
-function getDogs(db){
+function getDogs(dog, db){
   return db('dogs')
     .select('*')
 }

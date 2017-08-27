@@ -33,12 +33,9 @@ server.use(
 
 server.use('/api/v1/', walkerRoute)
 server.use('/api/v1/', ownerRoute)
-server.use('/api/v1', dogRoute)
-
+server.use('/api/v1/', dogRoute)
 
 passport.use(new LocalStrategy(auth.verify))
-
-
 
 module.exports = function(db) {
   server.set('db', db)
