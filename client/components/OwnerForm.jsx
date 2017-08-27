@@ -28,7 +28,7 @@ class OwnerForm extends React.Component {
   render(){
     const {name, address, phone, postCode, email}=this.state
     return(
-      <div>
+      <div className='ownerForm'>
         <h1>Sign up as an Owner</h1>
         <form className='ownerForm'>
           <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
@@ -38,7 +38,7 @@ class OwnerForm extends React.Component {
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
           <p><input type="submit" onClick={this.submitOwner.bind(this)} /></p>
         </form>
-        <Link to="/register">Cancel</Link>
+        <Link to="/register"className="NoLeftButton">Cancel</Link>
       </div>
     )
   }
