@@ -17,6 +17,16 @@ const ownerDb = require('../db/ownersdb')
 // )
 
 // These routes are protected
+
+router.get('/owners', (req, res) => {
+  var db = req.app.get('db')
+  var owner = req.body
+  ownerDb.getOwners(owner, db)
+    .then(owner => {
+      res.json(owner)
+    })
+})
+
 router.post('/owners', (req, res) => {
   var db = req.app.get('db')
   var owner = req.body

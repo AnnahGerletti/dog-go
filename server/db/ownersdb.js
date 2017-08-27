@@ -3,7 +3,7 @@ const insertOwners = (owner ,db) => {
     .insert(owner)
 }
 
-function getOwners(db){
+function getOwners(owner, db){
   return db('owners')
     .select('*')
 }
