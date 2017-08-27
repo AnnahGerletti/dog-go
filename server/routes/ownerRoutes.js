@@ -11,8 +11,9 @@ const ownerDb = require('../db/ownersdb')
 router.get('/owners', (req, res) => {
   var db = req.app.get('db')
   var owner = req.body
-  ownerDb.getOwners(owner, db)
+  ownerDb.getOwnerWithDog(owner, db)
     .then(owner => {
+      console.log(owner)
       res.json(owner)
     })
 })

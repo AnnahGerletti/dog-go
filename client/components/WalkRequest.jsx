@@ -12,11 +12,11 @@ class WalkRequest extends React.Component {
   render() {
     const{receive}=this.props
     return(
-      <div>
-        <h2>Owner List</h2>
+      <div className='container'>
+        <h2 className='subHeader'>Dog List</h2>
         <ul>
             {receive.map((owner, i) => {
-              return <li key={i}>the owners are -- {owner.name}</li>})}
+              return <li key={i}>the owners are -- {owner.owner_name} their dogs are called {owner.dog_name}</li>})}
         </ul>
       </div>
     )
@@ -25,6 +25,7 @@ class WalkRequest extends React.Component {
 
 
 function mapStateToProps(state) {
+  console.log(state.receive);
   return {receive: state.receive}
 }
 
