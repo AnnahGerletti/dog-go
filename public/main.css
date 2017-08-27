@@ -86,6 +86,10 @@ input {
 
 }
 
+.quote {
+    margin: 30px;
+}
+
 /*Buttons */
 .NoLeftButton {
   margin-left: 0!important;
@@ -123,6 +127,7 @@ input {
 
 /*footers*/
 .footer {
+  display: none!important;
   position: absolute;
   bottom: 0;
   width: 100%;
