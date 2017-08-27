@@ -1,4 +1,4 @@
-export const walkerReducer = (state = [], action) => {
+export default function walkerReducer(state = [], action) {
   switch (action.type) {
     case 'RECEIVE_WALKER':
       return [...action.walker]
