@@ -25,12 +25,6 @@ class DogForm extends React.Component {
     document.location='/#/WalkRequest'
   }
 
-  submitOwner(e){
-    e.preventDefault()
-    this.props.dispatch(postOwnerRequest(this.state.newOwner))
-    document.location='/#/register/dog'
-  }
-
   render(){
     const{name, breed, age, colour}=this.state
     return(
