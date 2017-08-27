@@ -9,34 +9,31 @@ import RegisterForm from './RegisterForm'
 
 const Navbar = ({ isAuthenticated }) => {
   return (
-    <nav>
+    <nav className="Navbar">
       <div>
         <div>
           {!isAuthenticated && (
-            <div>
+            <div className="NavContainer">
               <Route exact path='/' render={() => (
-                <Links active='Home' />
+                <Links to='Home' />
               )} />
               <Route path='/login' render={() => (
                 <div>
-                  <Links active='Login' />
+                  <Links to='Login' />
                   <LoginForm />
                 </div>
               )} />
             <Route path='/registerform' render={({history}) => (
                 <div>
-                  <Links active='Register' />
+                  <Links to='Register' />
                   <RegisterForm history={history}/>
                 </div>
               )} />
             </div>
           )}
-
           {isAuthenticated &&
             <Logout />
           }
-
-          <hr />
         </div>
       </div>
     </nav>
