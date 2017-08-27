@@ -1,11 +1,8 @@
 
-const getBooks = (db) => {
- return db('users')
-   .join('owners', 'authors.id', '=', 'users.author_id')
-   .join('walkers', 'genres.id', '=', 'users.genre_id')
-   .select('*')
+function getUsers (user, db) {
+  return db('users')
+    .select('*')
 }
-
 module.exports = {
- getBooks
+ getUsers
 }
