@@ -3,21 +3,26 @@ import {connect} from 'react-redux'
 import {receiveWalkerRequest} from '../actions/walkers'
 
 export class ReceiveWalk extends React.Component {
-  constructor(props) {
-    super(props)
-
-  }
 
   componentDidMount() {
     this.props.dispatch(receiveWalkerRequest())
   }
 
   render() {
-    const { walker } = this.props
-    console.log('walker', walker);
+    const { walkerReducer } = this.props
     return (
       <div>
-        Hi I am an walker looking for a walk request
+        <h3>Walkers</h3>
+        <ul>
+          {walkerReducer.map((walker, i) => {
+            return <li key={i}>
+              {walker.name}
+              {walker.address}
+              {walker.postCode}
+            </li>
+
+          })}
+        </ul>
       </div>
     )
   }
@@ -25,7 +30,7 @@ export class ReceiveWalk extends React.Component {
 
 function mapStateToProps (state, props) {
   return {
-    walker: state.walker
+    walkerReducer: state.walkerReducer
   }
 }
 

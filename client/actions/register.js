@@ -68,6 +68,28 @@ export function postWalkerRequest (walker) {
   }
 }
 
+// export const receiveWalkerAction = (walker) => {
+//   console.log('walkaction', walker);
+//   return {
+//     type: 'RECEIVE_WALKER',
+//     walker
+//   }
+// }
+//
+// export function receiveWalkerRequest (walker) {
+//   console.log('walkRequest', walker);
+//   return dispatch => {
+//     return request('get', '/walkers', walker)
+//       .then(res => {
+//         dispatch(receiveWalkerAction(res.body))
+//       })
+//       .catch(err => {
+//         console.error(err.message)
+//         return
+//       })
+//   }
+// }
+
 export const addOwnerRequest = (owner) => {
   return {
     type: 'ADD_OWNER',
