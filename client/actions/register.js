@@ -30,6 +30,7 @@ export function registerUser (creds,callback) {
 
     return request('post', '/register', creds)
       .then((response) => {
+        console.log({response});
         if (!response.ok) {
           // If there was a problem, we want to
           // dispatch the error condition
@@ -68,12 +69,13 @@ export function postWalkerRequest (walker) {
   }
 }
 
-export const addOwnerRequest =(owner) => {
+export const addOwnerRequest = (owner) => {
   return{
     type: 'ADD_OWNER',
     owner
   }
 }
+
 export function postOwnerRequest (owner) {
   return(dispatch) => {
     return request('post', '/owners', owner)
