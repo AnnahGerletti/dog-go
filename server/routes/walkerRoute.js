@@ -1,4 +1,3 @@
-
 const bodyParser = require('body-parser')
 const express = require('express')
 const verifyJwt = require('express-jwt')
@@ -19,7 +18,10 @@ router.get('/walkers', (req, res) => {
 router.post('/walkers', (req, res) => {
   var db = req.app.get('db')
   var walker = req.body
+<<<<<<< HEAD
   //console.log('is a walker', walker);
+=======
+>>>>>>> 24955519a79d46dfd12761c572c0041169678c99
   walker.user_id = req.user.id
   walkerdb.insertWalker(walker, db)
     .then(response =>{
@@ -38,24 +40,5 @@ router.get('/walker/:id', (req, res) => {
     res.json(data)
   })
 })
-
-// Protect all routes beneath this point
-
-// router.use(
-//   verifyJwt({
-//     secret: getSecret
-//   }),
-//   auth.handleError
-// )
-
-
-
-
-//
-
-
-// These routes are protected
-
-
 
 module.exports = router
