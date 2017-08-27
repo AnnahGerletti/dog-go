@@ -1,11 +1,14 @@
 import React from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
+
 import Navbar from './Navbar'
 import WalkRequest from './WalkRequest'
 import Register from './Register'
 import WalkerForm from './WalkerForm'
 import OwnerForm from './OwnerForm'
 import DogForm from './DogForm'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import ReceiveWalk from './ReceiveWalk'
+
 const App = () => {
   return (
     <div className="container">
@@ -20,6 +23,7 @@ const App = () => {
             <Route exact path='/register/walker' component={WalkerForm} />
             <Route exact path='/register/owner' component={OwnerForm} />
             <Route exact path= '/register/dog' component={DogForm} />
+            <Route exact path='/gowalking' component={ReceiveWalk} />
           </div>
         </Router>
       </div>
