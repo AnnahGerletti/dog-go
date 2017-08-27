@@ -18,3 +18,9 @@ test('There are Walkers in the Walker Table', t => {
     .getWalkers(t.context.db)
     .then(actual => t.truthy(actual))
 })
+
+test('There is an individual Walker in the Walker Table', t => {
+  return walkers
+    .getWalker(1, t.context.db)
+    .then(actual => t.truthy(actual))
+})

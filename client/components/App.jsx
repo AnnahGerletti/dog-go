@@ -6,7 +6,8 @@ import WalkerForm from './WalkerForm'
 import OwnerForm from './OwnerForm'
 import DogForm from './DogForm'
 import { HashRouter as Router, Route } from 'react-router-dom'
-const App = () => {
+
+export class App extends React.Component {
   return (
     <div className="container">
       <div className="logo"></div>
@@ -28,4 +29,4 @@ const App = () => {
   )
 }
 
-export default App
+//export default App

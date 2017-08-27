@@ -47,6 +47,7 @@
     "knex": "^0.12.6",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "pg": "^7.2.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
@@ -57,6 +58,8 @@
     "sodium": "^2.0.1",
     "sqlite3": "3.1.8",
     "superagent": "^3.5.2",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.8.0",
     "webpack": "^2.6.1"
   },
   "devDependencies": {
