@@ -33,7 +33,7 @@ class LoginForm extends Component {
 
   render () {
     return (
-      <div>
+      <div className="fromPadding">
         <p><input name='username' onChange={this.handleChange} placeholder='Username' /></p>
         <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password' /></p>
         <Link to='/walkrequest' className="NoLeftButton loneButton" onClick={this.handleClick}>Login</Link>
