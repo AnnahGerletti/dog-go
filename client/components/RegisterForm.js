@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import {Link} from 'react-router-dom'
 
 import { registerUser, registerError } from '../actions/register'
 import ErrorMessage from './ErrorMessage'
@@ -42,7 +42,7 @@ class RegisterForm extends Component {
   render () {
     const { username, password, confirm } = this.state
     return (
-      <div>
+      <div className="fromPadding">
         <p><input name='username' placeholder='Username'
           onChange={this.handleChange} value={username} /></p>
 
@@ -52,15 +52,18 @@ class RegisterForm extends Component {
         <p><input type='password' name='confirm' placeholder='Confirm'
           onChange={this.handleChange} value={confirm} /></p>
 
-        <button onClick={(e) => this.handleClick(e)}>
+        <Link to="#" className="NoLeftButton loneButton"onClick={(e) => this.handleClick(e)} replace>
           Register
-        </button>
+        </Link>
 
         <ErrorMessage reducer='auth' />
       </div>
+
     )
   }
 }
+
+
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const Links = ({ active }) => {
   return (
     <div>
-      {active === 'Home' ? 'Home' : <Link to='/'>Home</Link>} | {' '}
-      {active === 'Register' ? 'Register' : <Link to='/registerform'>Register</Link>} | {' '}
+      {active === 'Home' ? 'Home' : <Link to='/'>About</Link>}  {' '}
+      {active === 'Register' ? 'Register' : <Link to='/registerform'>Register</Link>}  {' '}
       {active === 'Login' ? 'Login' : <Link to='/login'>Login</Link>}
     </div>
   )

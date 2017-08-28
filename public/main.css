@@ -1,0 +1,178 @@
+/*tags*/
+body {
+  background-color: #20273A;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+nav {
+  margin: 0 auto;
+}
+
+a, .button, button {
+  color: #000;
+  padding: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-left: 30px;
+  margin-left: 0!important;
+  width: inherit;
+}
+
+a:hover, .button:hover, button:hover {
+  background-color: #f7c50c;
+}
+
+a:first-child, .button:first-child, button:first-child {
+  margin-left: 0;
+}
+
+p.ErrorMessage {
+  color: #000;
+  padding: 10px;
+  color: #be0d0d;
+  font-weight: bolder;
+}
+
+input {
+  border-radius: 10px;
+  width: 60%;
+  font-size: 20px;
+  padding: 5px;
+  border-style: double;
+  color: #000;
+  max-width: 600px;
+}
+
+/*Headers*/
+.title {
+  font-family: 'Lobster', cursive;
+  padding-bottom: 5px;
+  padding-top: 0;
+  font-size: 65px;
+}
+.logo {
+  background-image: url(../images/dog_logo_no_logo.jpg);
+  background-size: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 220px;
+  margin-top: 30px;
+}
+
+/*containers*/
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+.HomeCon {
+  padding: 50px;
+  margin: 0 auto;
+  max-width: 600px;
+  height: 170px;
+}
+.RegButtonsCon {
+  max-width: 200px;
+  margin: 0 auto;
+}
+.fromPadding {
+  padding-top: 25px;
+}
+
+.walkerForm,.ownerForm{
+  margin-bottom:20px
+
+}
+
+/*Buttons */
+.NoLeftButton {
+  margin-left: 0!important;
+}
+.loneButton {
+  margin-top: 3%;
+}
+
+.loneButton {
+  margin-top: 2%;
+  display: inline-block;
+  margin-left: 0!important;
+}
+
+.NoLeftButton {
+  margin-left: 0!important;
+  display: inline-block;
+  margin-left:0!important;
+}
+
+.RegButton {
+  margin-top: 10px;
+  display: inline;
+  float: left;
+  padding: 16px;
+}
+
+.RegButton:last-child {
+  margin-left: 11%;
+}
+
+.cancelButton {
+  margin-top: 30%;
+}
+
+/*footers*/
+.footer {
+  position: absolute;
+  bottom: -150;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+}
+
+
+/*@media queries */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+h1{
+  font-size: x-large;
+}
+  .container {
+    width: 375px;
+    margin: 0 auto;
+  }
+
+  .footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 375px) and (orientation: portrait) {
+  h1{
+    font-size: x-large;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0!important;
+  }
+
+  .RegButtonsCon {
+    padding-bottom: 25px;
+  }
+
+  .footer {
+    clear: both;
+    position: relative;
+  }
+}

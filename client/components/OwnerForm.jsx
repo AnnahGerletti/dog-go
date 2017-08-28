@@ -22,12 +22,13 @@ class OwnerForm extends React.Component {
   submitOwner(e){
     e.preventDefault()
     this.props.dispatch(postOwnerRequest(this.state.newOwner))
+    document.location='/#/register/dog'
   }
 
   render(){
     const {name, address, phone, postCode, email}=this.state
     return(
-      <div>
+      <div className='ownerForm'>
         <h1>Sign up as an Owner</h1>
         <form className='ownerForm'>
           <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
@@ -35,9 +36,9 @@ class OwnerForm extends React.Component {
           <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
           <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
-          <p><input type="submit" onClick={this.submitOwner.bind(this)}/></p>
+          <p><input type="submit" onClick={this.submitOwner.bind(this)} /></p>
         </form>
-        <Link to="/register">Cancel</Link>
+        <Link to="/register"className="NoLeftButton">Cancel</Link>
       </div>
     )
   }

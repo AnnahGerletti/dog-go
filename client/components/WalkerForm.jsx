@@ -22,6 +22,7 @@ class WalkerForm extends React.Component {
   submitWalker(e){
       e.preventDefault()
       this.props.dispatch(postWalkerRequest(this.state.newWalker))
+      document.location = '/#/gowalking'
   }
 render (){
   const {name, address, phone, postCode, email} =this.state
@@ -36,7 +37,7 @@ render (){
         <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
         <p><input type="submit" onClick={this.submitWalker.bind(this)}/></p>
       </form>
-      <Link to="/register">Cancel</Link>
+      <Link to="/register" className="NoLeftButton">Cancel</Link>
 
     </div>
   )

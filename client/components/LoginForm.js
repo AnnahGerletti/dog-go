@@ -33,11 +33,11 @@ class LoginForm extends Component {
 
   render () {
     return (
-      <div>
+      <div className="fromPadding">
         <p><input name='username' onChange={this.handleChange} placeholder='Username' /></p>
         <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password' /></p>
-        <button onClick={this.handleClick}><Link to='/walkrequest'>Login</Link></button>
-        <ErrorMessage reducer='auth' />
+        <Link to='/walkrequest' className="NoLeftButton loneButton" onClick={this.handleClick}>Login</Link>
+        <ErrorMessage reducer='auth'/>
       </div>
     )
   }
