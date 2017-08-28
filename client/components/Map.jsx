@@ -8,6 +8,7 @@ class MapContainer extends React.Component {
   }
   render() {
     return (
+      <h2>map</h2>
       <div>
         <Map google={this.props.google} style={{
           width: '45%',
