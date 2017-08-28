@@ -1,18 +1,31 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
+import {receiveOwnersRequest} from '../actions/receiveOwners'
 
-const WalkRequest = (props) => {
-  return (
-    <div>
-      <h1>Doggo Main Page</h1>
-      <h3>List of Walkers</h3>
-    </div>
-  )
+class WalkRequest extends React.Component {
+
+  componentDidMount() {
+    this.props.dispatch(receiveOwnersRequest())
+  }
+  render() {
+    const{receive}=this.props
+    return(
+      <div>
+        <h2>Owner List</h2>
+        <ul>
+            {receive.map((owner, i) => {
+              return <li key={i}>the owners are -- {owner.name}</li>})}
+        </ul>
+      </div>
+    )
+  }
 }
 
+
 function mapStateToProps(state) {
-  return {}
+  return {receive: state.receive}
 }
 
 export default connect(mapStateToProps)(WalkRequest)

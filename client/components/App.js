@@ -9,6 +9,7 @@ import WalkerForm from './WalkerForm'
 import OwnerForm from './OwnerForm'
 import DogForm from './DogForm'
 import ReceiveWalk from './ReceiveWalk'
+import MapContainer from './MapContainer'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route exact path='/register/owner' component={OwnerForm} />
             <Route exact path= '/register/dog' component={DogForm} />
             <Route exact path='/gowalking' component={ReceiveWalk} />
+            <Route exact path='/mapcontainer'component={MapContainer} />
           </div>
         </Router>
       </div>
@@ -34,4 +36,4 @@ const App = () => {
   )
 }
 
-//export default App
+export default App

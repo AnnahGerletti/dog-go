@@ -1,3 +1,4 @@
+/*tags*/
 body {
   background-color: #20273A;
   margin: 0 auto;
@@ -18,37 +19,14 @@ a, .button, button {
   border-radius: 10px;
   text-decoration: none;
   margin-left: 30px;
-  border-style: solid;
+}
+
+a:hover, .button:hover, button:hover {
+  background-color: #f7c50c;
 }
 
 a:first-child, .button:first-child, button:first-child {
-  margin-left:0;
-}
-.loneButton {
-    margin-top: 3%;
-}
-.loneButton {
-    margin-top: 2%;
-    display: inline-block;
-    margin-left:0!important;
-}
-
-.NoLeftButton{
-  margin-left:0!important;
-}
-
-    display: inline-block;
-    margin-left:0!important;
-}
-
-.NoLeftButton{
-  margin-left:0!important;
-}
-
-.title {
-  font-family: 'Lobster', cursive;
-  padding-bottom: 45px;
-  padding-top: 0;
+  margin-left: 0;
 }
 
 p.ErrorMessage {
@@ -68,20 +46,65 @@ input {
   max-width: 600px;
 }
 
+/*Headers*/
+.title {
+  font-family: 'Lobster', cursive;
+  padding-bottom: 5px;
+  padding-top: 0;
+  font-size: 65px;
+}
+.logo {
+  background-image: url(../images/dog_logo_no_logo.jpg);
+  background-size: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 220px;
+  margin-top: 30px;
+}
+
+/*containers*/
 .container {
-  /*width: 375px;*/
+  width: 100%;
+  margin: 0 auto;
 }
-
-.RegButtonsCon{
-    max-width: 200px;
-    margin: 0 auto;
+.HomeCon {
+  padding: 50px;
+  margin: 0 auto;
+  max-width: 600px;
+  height: 170px;
 }
-
-.registerUser {
+.RegButtonsCon {
+  max-width: 200px;
+  margin: 0 auto;
+}
+.fromPadding {
   padding-top: 25px;
 }
 
+.walkerForm,.ownerForm{
+  margin-bottom:20px
 
+}
+
+/*Buttons */
+.NoLeftButton {
+  margin-left: 0!important;
+}
+.loneButton {
+  margin-top: 3%;
+}
+
+.loneButton {
+  margin-top: 2%;
+  display: inline-block;
+  margin-left: 0!important;
+}
+
+.NoLeftButton {
+  margin-left: 0!important;
+  display: inline-block;
+  margin-left:0!important;
+}
 
 .RegButton {
   margin-top: 10px;
@@ -98,23 +121,56 @@ input {
   margin-top: 30%;
 }
 
-.logo {
-  background-image: url(../images/dog_logo_no_logo.jpg);
-  background-size: 250px;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 220px;
-  margin-top: 30px;
-}
-
-
+/*footers*/
 .footer {
-  clear: both;
-  position: relative;
-  z-index: 10;
-  height: 3em;
-  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
   text-align: center;
   background-color: #fff;
   color: #000;
+}
+
+
+/*@media queries */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+h1{
+  font-size: x-large;
+}
+  .container {
+    width: 375px;
+    margin: 0 auto;
+  }
+
+  .footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 375px) and (orientation: portrait) {
+  h1{
+    font-size: x-large;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0!important;
+  }
+
+  .RegButtonsCon {
+    padding-bottom: 25px;
+  }
+
+  .footer {
+    clear: both;
+    position: relative;
+  }
 }

@@ -1,10 +1,5 @@
-const config = require('../../knexfile')[process.env.NODE_ENV || 'development']
-const knex = require('knex')(config)
-
-function insertWalker (walker ,testdb) {
-  //console.log('walker 1', walker);
-  const connection = knex
-  return connection('walkers')
+function insertWalker (walker ,db) {
+  return db('walkers')
     .select()
     .insert(walker)
 }
@@ -20,9 +15,8 @@ function insertWalker (walker ,testdb) {
 // }
 
 function getWalkers(body, db){
-  const connection = db || knex
-  return connection('walkers')
-    .select()
+  return db('walkers')
+    .select('*')
 }
 
 function getWalker(id, db){
