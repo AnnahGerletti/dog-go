@@ -7,7 +7,6 @@ const insertOwners = (owner ,db) => {
 function getDogsByUserId(user_id, db) {
   return db('owners').where('user_id', user_id).first()
     .then(owner => {
-      console.log(({owner}));
       if (!owner) return []
       return db('dogs')
         .where('owner_id', owner.id)

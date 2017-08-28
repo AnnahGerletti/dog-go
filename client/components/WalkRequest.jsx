@@ -22,14 +22,13 @@ class WalkRequest extends React.Component {
     })
   }
 
-  submitWalkRequest(owner) {
-    this.props.dispatch(sendWalkRequest(owner.dog_id))
+  submitWalkRequest(dog) {
+    this.props.dispatch(sendWalkRequest(dog.id))
   }
 
   render() {
     const {dogs} = this.props
     const {showWalk} = this.state
-    console.log({dogs});
     return(
       <div className='container'>
         <h2 className='subHeader'>Dog List</h2>
@@ -37,7 +36,7 @@ class WalkRequest extends React.Component {
           <ul>
               {dogs.map((dog, i) => {
                 return <li key={i}><button className="dogWalk loneButton" onClick={this.toggleWalk.bind(this)}>Your lovely doggo: <strong>{dog.name}</strong></button>
-                {showWalk && <button className='requestWalk loneButton' onClick={() => this.submitWalkRequest(owner)}>Walk {dog.name}?</button>}
+                {showWalk && <button className='requestWalk loneButton' onClick={() => this.submitWalkRequest(dog)}>Walk {dog.name}?</button>}
                 </li>})}
 
           </ul>

@@ -3,12 +3,10 @@ function requestWalk(dog_id, db) {
     .insert({dog_id})
 }
 
-function getWalkRequest(body, db) {
+function getWalkRequest(db) {
   return db('walkRequest')
     .select()
 }
-
-
 
 module.exports = {
   requestWalk,
