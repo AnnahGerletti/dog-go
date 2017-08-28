@@ -31,13 +31,13 @@ class OwnerForm extends React.Component {
     return(
       <div className='ownerForm'>
         <h1>Sign up as an Owner</h1>
-        <form className='ownerForm'>
+        <form className='ownerForm' onSubmit={this.submitOwner.bind(this)} >
           <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
           <p><input name="address" placeholder="address" onChange={this.handleChange} value={address} /></p>
           <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
           <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
-          <p><input type="submit" onClick={this.submitOwner.bind(this)} /></p>
+          <p><input type="submit" /></p>
         </form>
         <Link to="/register"className="NoLeftButton">Cancel</Link>
       </div>

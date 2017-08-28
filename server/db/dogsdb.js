@@ -1,4 +1,4 @@
-const insertDogs = (dog ,db) => {
+function insertDogs (dog ,db) {
   return db ('dogs')
     .insert(dog)
 }
@@ -17,7 +17,7 @@ function insertWithUserId(db, user_id, dog) {
     })
     .catch(err => console.log(err))
 }
-function getDogs(dog, db){
+function getDogs(db){
   return db('dogs')
     .select('*')
 }
