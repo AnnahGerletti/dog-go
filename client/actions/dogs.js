@@ -1,3 +1,5 @@
+import request from '../utils/api'
+
 export function addDogDetails(dog) {
   return{
     type: 'ADD_DOG',
