@@ -12,7 +12,7 @@ test.cb('register', (t) => {
     .post('/api/v1/register')
     .send({username: 'bob', password: 'b'})
     .end((err, res) => {
-      t.is(res.body.message, 'Authenitcation successful.')
+      t.is(res.body.message, 'User exists')
       t.end()
     })
 })
