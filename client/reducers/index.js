@@ -1,16 +1,14 @@
 import {combineReducers} from 'redux'
 
 import auth from './auth'
-import register from './register'
-import receive from './owners'
-import walkerReducer from './walkers'
+import owners from './owners'
+import walkers from './walkers'
 import dogs from './dogs'
 
 const reducers = combineReducers({
   auth,
-  register,
-  receive,
-  walkerReducer,
+  owners,
+  walkers,
   dogs
 })
 
