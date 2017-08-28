@@ -1,6 +1,6 @@
 import request from '../utils/api'
 
-export const receiveWalkerAction = (walker) => {
+export function receiveWalkerAction(walker) {
   return {
     type: 'RECEIVE_WALKER',
     walker

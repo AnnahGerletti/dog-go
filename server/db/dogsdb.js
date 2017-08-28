@@ -3,6 +3,7 @@ const insertDogs = (dog ,db) => {
     .insert(dog)
 }
 
+
 function getOwnerIdByUserId (user_id, db) {
   return db('owners').where('user_id', user_id).first()
 }

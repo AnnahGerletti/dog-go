@@ -35,7 +35,7 @@ class RegisterForm extends Component {
       password: password.trim()
     }
     this.props.registerUser(creds, () =>{
-      this.props.history.push('/register')
+      this.props.history.push('/accounts')
     })
   }
 
