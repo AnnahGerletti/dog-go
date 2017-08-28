@@ -1,27 +1,25 @@
-
 const bodyParser = require('body-parser')
 const express = require('express')
 const verifyJwt = require('express-jwt')
 
+const dogsdb = require('../db/dogsdb')
+
 const router = express.Router()
 router.use(bodyParser.json())
 
-const ownerDb = require('../db/ownersdb')
-
-router.get('/owners', (req, res) => {
+router.get('/dogs', (req, res) => {
   var db = req.app.get('db')
-  var owner = req.body
-  ownerDb.getOwners(owner, db)
-    .then(owner => {
-      res.json(owner)
+  var dog = req.body
+  dogsdb.getDogs(dog, db)
+    .then(dogs => {
+      res.json(dogs)
     })
 })
 
-router.post('/owners', (req, res) => {
-  var db = req.app.get('db')
-  var owner = req.body
-  owner.user_id = req.user.id
-  ownerDb.insertOwners(owner, db)
+router.post('/dogs', (req, res) => {
+  const dog = req.body
+  const db = req.app.get('db')
+  dogsdb.insertWithUserId(db, req.user.id, dog)
   .then(response => {
     res.status(201).json(response)
   })
