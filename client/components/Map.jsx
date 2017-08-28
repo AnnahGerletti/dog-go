@@ -8,14 +8,15 @@ class MapContainer extends React.Component {
   }
   render() {
     return (
-      <h2>map</h2>
       <div>
+        <h2>map</h2>
         <Map google={this.props.google} style={{
           width: '45%',
           height: '45%',
           position: 'relative',
-          margin: '0 auto'
-        }} className={'map'} zoom={13} fullscreenControl={true} containerStyle={{}} initialCenter={{
+          margin: '0 auto'}}
+
+          className={'map'} zoom={13} fullscreenControl={true} containerStyle={{}} initialCenter={{
           lat: -41.2865,
           lng: 174.7762
         }}>
