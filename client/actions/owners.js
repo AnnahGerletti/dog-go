@@ -1,17 +1,19 @@
 import request from '../utils/api'
 
-export function receiveOwnersAction(owner) {
+export function
+receiveDogsAction(dogs) {
   return{
-    type: 'RECEIVE_OWNERS',
-    owner
+    type: 'RECEIVE_DOGS',
+    dogs
   }
 }
 
 export function receiveOwnersRequest (owner) {
   return dispatch => {
-    return request('get', '/owners', owner)
+    return request('get', '/owner', owner)
       .then(res => {
-        dispatch(receiveOwnersAction(res.body))
+        console.log("the doggos", res.body);
+        dispatch(receiveDogsAction(res.body))
       })
       .catch(err => {
         console.error(err.message)
@@ -21,15 +23,16 @@ export function receiveOwnersRequest (owner) {
 }
 
 export function ownerWalkRequest(request) {
+  console.log('action request', request);
   return {
     type: 'SEND_REQUEST',
     request
   }
 }
 
-export function sendWalkRequest (request) {
+export function sendWalkRequest (dog_id) {
   return dispatch => {
-    return request('post', '/owners', request)
+    return request('post', '/walkrequest/' + dog_id)
       .then(res => {
         dispatch(ownerWalkRequest(res.body))
       })

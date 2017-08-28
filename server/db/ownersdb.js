@@ -4,11 +4,22 @@ const insertOwners = (owner ,db) => {
 
   }
 
+function getDogsByUserId(user_id, db) {
+  return db('owners').where('user_id', user_id).first()
+    .then(owner => {
+      console.log(({owner}));
+      if (!owner) return []
+      return db('dogs')
+        .where('owner_id', owner.id)
+    })
+}
+
 function getOwnerWithDog(owner, db){
   return db('owners')
     .join('dogs', 'dogs.owner_id', '=', 'owners.id')
     .select('owners.*', 'owners.name as owner_name')
     .select('dogs.*', 'dogs.name as dog_name')
+    .select('dogs.*', 'dogs.id as dog_id')
 }
 
 function getOwner(db, id){
@@ -27,5 +38,6 @@ module.exports = {
    insertOwners,
    getOwnerWithDog,
    getOwner,
-   getOwnerByUserId
+   getOwnerByUserId,
+   getDogsByUserId
 }

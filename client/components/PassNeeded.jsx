@@ -24,7 +24,7 @@ class PassNeeded extends React.Component {
       <label>Enter your password again please
         <input type="password" placeholder="password" onChange={this.updatePassword} />
       </label>
-      <input className='loneButton' type="submit" />
+      <input type="submit" />
     </form>
   }
 }
