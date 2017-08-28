@@ -13,8 +13,6 @@ class WalkerForm extends React.Component {
       newWalker: {},
       place: {
         place: "",
-        description: "",
-        image: "",
         lat: "",
         lng: ""
       },
@@ -37,7 +35,6 @@ class WalkerForm extends React.Component {
 
   handleSelect() {
     let { address } = this.state;
-    console.log(address)
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
@@ -54,6 +51,8 @@ class WalkerForm extends React.Component {
           loading: false
         })
       })
+      console.log(this.state.place)
+
   }
 
   submitWalker(e){
@@ -61,52 +60,52 @@ class WalkerForm extends React.Component {
       this.props.dispatch(postWalkerRequest(this.state.newWalker))
       document.location = '/#/gowalking'
   }
-render (){
-  const {name, address, phone, postCode, email} =this.state
-  const AutocompleteItem = ({ formattedSuggestion }) =>
-      <div className="Demo__suggestion-item">
-        <i className="fa fa-map-marker Demo__suggestion-icon" />
-        <strong>{formattedSuggestion.mainText}</strong>{" "}
-        <small className="text-muted">
-          {formattedSuggestion.secondaryText}
-        </small>
-      </div>;
+  render (){
+    const {name, address, phone, postCode, email} =this.state
+    const AutocompleteItem = ({ formattedSuggestion }) =>
+        <div className="Demo__suggestion-item">
+          <i className="fa fa-map-marker Demo__suggestion-icon" />
+          <strong>{formattedSuggestion.mainText}</strong>{" "}
+          <small className="text-muted">
+            {formattedSuggestion.secondaryText}
+          </small>
+        </div>
 
-    const inputProps = {
-      type: "text",
-      value: this.state.address,
-      onChange: this.setAddress,
-      onBlur: this.handleSelect,
-      onFocus: () => {
-        console.log("Focused!");
-      },
-      autoFocus: true,
-      placeholder: "Search Places",
-      name: "Demo__input",
-      id: "my-input-id"
-    };
+      const inputProps = {
+        type: "text",
+        value: this.state.address,
+        onChange: this.setAddress,
+        onBlur: this.handleSelect,
+        onFocus: () => {
+          console.log("Focused!");
+        },
+        autoFocus: true,
+        placeholder: "Search Places",
+        name: "Demo__input",
+        id: "my-input-id"
+      }
 
-  return(
-    <div>
-      <h1>Sign up as a Walker</h1>
-      <form className='walkerForm'>
-        <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
-        <p><input name="address2" placeholder="address2" value="" /></p>
-          <PlacesAutocomplete
-              autocompleteItem={AutocompleteItem}
-              inputProps={inputProps}
-              googleLogo={false}
-            />
-        <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
-        <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
-        <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
-        <p><input type="submit" onClick={this.submitWalker.bind(this)}/></p>
-      </form>
-      <Link to="/register" className="NoLeftButton">Cancel</Link>
+    return(
+      <div>
+        <h1>Sign up as a Walker</h1>
+        <form className='walkerForm'>
+          <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
+            <PlacesAutocomplete
+                autocompleteItem={AutocompleteItem}
+                inputProps={inputProps}
+                googleLogo={false}
+                name="address"
+              />
+          <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
+          <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
+          <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
+          <p><input type="submit" onClick={this.submitWalker.bind(this)}/></p>
+        </form>
+        <Link to="/register" className="NoLeftButton">Cancel</Link>
 
-    </div>
-  )
-}
+      </div>
+    )
+  }
 
 }
 
