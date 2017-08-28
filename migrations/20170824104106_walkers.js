@@ -6,6 +6,8 @@ exports.up = function(knex, Promise) {
     table.string('phone')
     table.string('postCode')
     table.string('email')
+    table.string('lat')
+    table.string('lng')
     table.integer('user_id').unique().notNullable()
   })
 };
