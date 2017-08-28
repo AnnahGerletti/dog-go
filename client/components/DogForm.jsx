@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {postDogDetails} from '../actions/register'
+import {postDogDetails} from '../actions/dogs'
 
 class DogForm extends React.Component {
   constructor (props){
@@ -29,12 +29,12 @@ class DogForm extends React.Component {
     return(
       <div>
         <h1>Sign up your dog for future walks.</h1>
-        <form className='dogForm'>
+        <form className='dogForm' onSubmit={this.submitDog.bind(this)}>
           <p><input name="name" placeholder='name' onChange={this.handleChange} value={name} /></p>
           <p><input name="breed" placeholder='breed' onChange={this.handleChange} value={breed} /></p>
           <p><input name="age" placeholder='age' onChange={this.handleChange} value={age} /></p>
           <p><input name="colour" placeholder='colour' onChange={this.handleChange} value={colour} /></p>
-          <p><input type="submit" onClick={this.submitDog.bind(this)} /></p>
+          <p><input type="submit" /></p>
         </form>
         <Link to="/register">Cancel</Link>
       </div>
