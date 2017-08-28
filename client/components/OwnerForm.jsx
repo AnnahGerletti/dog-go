@@ -21,8 +21,9 @@ class OwnerForm extends React.Component {
 
   submitOwner(e){
     e.preventDefault()
-    this.props.dispatch(postOwnerRequest(this.state.newOwner))
-    document.location='/#/register/dog'
+    this.props.dispatch(postOwnerRequest(this.state.newOwner), () =>
+      document.location='/#/register/dog'
+    )
   }
 
   render(){
