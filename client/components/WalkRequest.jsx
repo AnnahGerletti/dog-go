@@ -18,6 +18,10 @@ class WalkRequest extends React.Component {
     })
   }
 
+  submitWalkRequest() {
+    this.props.dispatch()
+  }
+
   componentDidMount() {
     this.props.dispatch(receiveOwnersRequest())
   }
