@@ -76,6 +76,7 @@
   },
   "ava": {
     "require": [
+      "babel-register",
       "dotenv/config"
     ],
     "babel": "inherit"

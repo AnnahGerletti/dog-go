@@ -1,5 +1,6 @@
 import React from 'react'
 var test = require('ava')
+import '../setup-dom'
 import {Component} from 'react'
 
 import jsdom from 'jsdom'
@@ -15,12 +16,11 @@ import App from '../../client/components/App'
 
 
 
-test.only('Test React component: <App />', t => {
+test('Test React component: <App />', t => {
 
   const wrapper = shallow(<App />)
-  expect(wrapper.find('container').exists()).to.be(false)
+  t.false(wrapper.find('container').exists())
   //const expected = '<Header /><Homes /><Footer />'
   //var wrapper = shallow(<App />)
-  t.end()
   //t.is(wrapper.text().trim(), expected)
 })

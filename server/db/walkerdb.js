@@ -14,7 +14,7 @@ function insertWalker (walker ,db) {
 //     })
 // }
 
-function getWalkers(body, db){
+function getWalkers(db){
   return db('walkers')
     .select('*')
 }
