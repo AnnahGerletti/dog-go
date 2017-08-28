@@ -9,6 +9,7 @@ const apiRoutes = require('./routes/api')
 const walkerRoute = require('./routes/walkerRoute')
 const ownerRoute = require('./routes/ownerRoutes')
 const dogRoute = require('./routes/dogRoutes')
+const requestRoutes = require('./routes/requestRoutes')
 
 const server = express()
 
@@ -34,6 +35,7 @@ server.use(
 server.use('/api/v1/', walkerRoute)
 server.use('/api/v1/', ownerRoute)
 server.use('/api/v1/', dogRoute)
+server.use('/api/v1/', requestRoutes)
 
 passport.use(new LocalStrategy(auth.verify))
 
