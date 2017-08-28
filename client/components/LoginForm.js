@@ -22,31 +22,32 @@ class LoginForm extends Component {
     })
   }
 
-  handleClick () {
+  handleClick (e) {
+    e.preventDefault()
     const { username, password } = this.state
     const creds = {
       username: username.trim(),
       password: password.trim()
     }
-    this.props.loginUser(creds)
+    this.props.loginUser(creds, () => document.location = '/#/accounts')
   }
 
   render () {
     return (
-      <div>
+      <form className="fromPadding" onSubmit={this.handleClick} >
         <p><input name='username' onChange={this.handleChange} placeholder='Username' /></p>
         <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password' /></p>
-        <Link to='/walkrequest' className="NoLeftButton loneButton" onClick={this.handleClick}>Login</Link>
+        <button type="submit" className="NoLeftButton loneButton">Login</button>
         <ErrorMessage reducer='auth'/>
-      </div>
+      </form>
     )
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginUser: creds => {
-      return dispatch(loginUser(creds))
+    loginUser: (creds, cb) => {
+      return dispatch(loginUser(creds, cb))
     }
   }
 }

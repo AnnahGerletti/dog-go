@@ -35,14 +35,14 @@ class RegisterForm extends Component {
       password: password.trim()
     }
     this.props.registerUser(creds, () =>{
-      this.props.history.push('/register')
+      this.props.history.push('/accounts')
     })
   }
 
   render () {
     const { username, password, confirm } = this.state
     return (
-      <div className="registerUser">
+      <div className="fromPadding">
         <p><input name='username' placeholder='Username'
           onChange={this.handleChange} value={username} /></p>
 
@@ -52,7 +52,7 @@ class RegisterForm extends Component {
         <p><input type='password' name='confirm' placeholder='Confirm'
           onChange={this.handleChange} value={confirm} /></p>
 
-        <Link to="#" className="NoLeftButton loneButton"onClick={(e) => this.handleClick(e)}>
+        <Link to="#" className="NoLeftButton loneButton"onClick={(e) => this.handleClick(e)} replace>
           Register
         </Link>
 

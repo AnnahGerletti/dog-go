@@ -21,7 +21,7 @@ class DogForm extends React.Component {
 
   submitDog(e){
     e.preventDefault()
-    this.props.dispatch(postDogDetails(this.state.newDog))
+    this.props.dispatch(postDogDetails(this.state.newDog), () => document.location='/#/accounts')
   }
 
   render(){

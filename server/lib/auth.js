@@ -5,9 +5,13 @@ const crypto = require('./crypto')
 const users = require('./users')
 
 function createToken (user, secret) {
+  //db getOwnerByUserId
+    //then getWalkerByUserId
   return jwt.sign({
     id: user.id,
-    username: user.username
+    username: user.username,
+    isWalker: user.isWalker,
+    isOwner: user.isOwner
   }, secret, {
     expiresIn: 60 * 60 * 24
   })
@@ -40,12 +44,22 @@ function issueJwt (req, res, next) {
           info: info.message
         })
       }
-
-      const token = createToken(user, process.env.JWT_SECRET)
-      res.json({
-        message: 'Authentication successful.',
-        token
-      })
+      let knex = req.app.get('db')
+      knex('owners').where('user_id', user.id).first()
+        .then(owner => {
+          user.isOwner = owner ? true : false
+          knex('walkers').where('user_id', user.id).first()
+            .then(walker => {
+              user.isWalker = walker ? true : false
+              const token = createToken(user, process.env.JWT_SECRET)
+              res.json({
+                message: 'Authentication successful.',
+                token
+              })
+            })
+            .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
     }
   )(req, res, next)
 }

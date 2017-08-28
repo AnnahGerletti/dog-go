@@ -1,11 +1,14 @@
 const insertOwners = (owner ,db) => {
   return db('owners')
     .insert(owner)
-}
 
-function getOwners(db){
+  }
+
+function getOwnerWithDog(owner, db){
   return db('owners')
-    .select('*')
+    .join('dogs', 'dogs.owner_id', '=', 'owners.id')
+    .select('owners.*', 'owners.name as owner_name')
+    .select('dogs.*', 'dogs.name as dog_name')
 }
 
 function getOwner(db, id){
@@ -22,7 +25,7 @@ function getOwnerByUserId(db, id) {
 
 module.exports = {
    insertOwners,
-   getOwners,
+   getOwnerWithDog,
    getOwner,
    getOwnerByUserId
 }
