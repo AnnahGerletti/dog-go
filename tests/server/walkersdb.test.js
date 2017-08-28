@@ -2,8 +2,8 @@ const test = require('ava')
 const knex = require('knex')
 
 const config = require('../../knexfile').test
-const walkers = require('../../server/db/walkerdb')
 
+const walkers = require('../../server/db/walkerdb')
 const users = require('../../server/lib/users')
 
 
