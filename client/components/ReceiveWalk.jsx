@@ -9,12 +9,12 @@ export class ReceiveWalk extends React.Component {
   }
 
   render() {
-    const { walkerReducer } = this.props
+    const { walkers } = this.props
     return (
       <div>
         <h3>Walkers</h3>
         <ul>
-          {walkerReducer.map((walker, i) => {
+          {walkers.map((walker, i) => {
             return <li key={i}>
               {walker.name}
               {walker.address}
@@ -30,7 +30,7 @@ export class ReceiveWalk extends React.Component {
 
 function mapStateToProps (state, props) {
   return {
-    walkerReducer: state.walkerReducer
+    walkers: state.walkers
   }
 }
 

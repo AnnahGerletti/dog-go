@@ -10,9 +10,8 @@ receiveDogsAction(dogs) {
 
 export function receiveOwnersRequest (owner) {
   return dispatch => {
-    return request('get', '/owner', owner)
+    return request('get', '/owners', owner)
       .then(res => {
-        console.log("the doggos", res.body);
         dispatch(receiveDogsAction(res.body))
       })
       .catch(err => {
@@ -23,7 +22,6 @@ export function receiveOwnersRequest (owner) {
 }
 
 export function ownerWalkRequest(request) {
-  console.log('action request', request);
   return {
     type: 'SEND_REQUEST',
     request
