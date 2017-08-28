@@ -9,8 +9,7 @@ router.use(bodyParser.json())
 
 router.get('/walkers', (req, res) => {
   var db = req.app.get('db')
-  var walker = req.body
-  walkerdb.getWalkers(walker, db)
+  walkerdb.getWalkers(db)
     .then(function(data){
         res.json(data)
     })
