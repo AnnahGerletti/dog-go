@@ -22,7 +22,7 @@ class WalkerForm extends React.Component {
 
   submitWalker(e){
       e.preventDefault()
-      this.props.dispatch(postWalkerRequest(this.state.newWalker, () => document.location = '/#/accounts'))
+      this.props.dispatch(postWalkerRequest(this.state.newWalker, () => document.location = '/#/MapWalkers'))
   }
 render (){
   const {name, address, phone, postCode, email} =this.state
