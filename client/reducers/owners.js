@@ -5,7 +5,7 @@ export default function owners(state = [], action) {
       return [...state, action.owner]
     case 'RECEIVE_OWNERS':
       return [...action.owner]
-    case 'SEND_REQUEST':
+    case 'SEND_WALK_REQUEST':
       return [...state, action.request]
     default:
       return state
