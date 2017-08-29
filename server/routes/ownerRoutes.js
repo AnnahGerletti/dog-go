@@ -1,23 +1,24 @@
-
-const bodyParser = require('body-parser')
 const express = require('express')
-const verifyJwt = require('express-jwt')
-
 const router = express.Router()
-router.use(bodyParser.json())
 
 const ownerDb = require('../db/ownersdb')
 
-router.get('/owners', (req, res) => {
+router.get('/', (req, res) => {
   var db = req.app.get('db')
-  var owner = req.body
-  ownerDb.getOwners(owner, db)
-    .then(owner => {
-      res.json(owner)
-    })
+  var user_id = req.user.id
+  ownerDb.getDogsByUserId(user_id, db)
+    .then(dogs => res.json(dogs))
 })
 
-router.post('/owners', (req, res) => {
+router.get('/all', (req, res) => {
+  var db = req.app.get('db')
+  var user_id = req.user.id
+  ownerDb.getOwnerWithDog(db)
+    .then(owners => res.json(owners))
+
+})
+
+router.post('/', (req, res) => {
   var db = req.app.get('db')
   var owner = req.body
   owner.user_id = req.user.id

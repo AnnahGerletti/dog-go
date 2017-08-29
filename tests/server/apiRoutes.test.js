@@ -7,12 +7,12 @@ var setupDb = require('../setup-db')
 
 setupDb(test, createServer)
 
-test.cb('register', (t) => {
+test.only.cb('register', (t) => {
   request(t.context.app)
     .post('/api/v1/register')
-    .send({username: 'bob', password: 'b'})
+    .send({username: 'bobs', password: 'b'})
     .end((err, res) => {
-      t.is(res.body.message, 'Authenitcation successful.')
+      t.true(res.body.token.length > 0)
       t.end()
     })
 })

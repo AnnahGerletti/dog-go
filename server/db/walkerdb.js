@@ -4,9 +4,18 @@ function insertWalker (walker ,db) {
     .select()
     .insert(walker)
 }
+// function create (username, password, testDb) {
+//   const hash = crypto.getHash(password)
+//   const connection = testDb || knex
+//
+//   return connection('users')
+//     .insert({
+//       username: username,
+//       hash: hash
+//     })
+// }
 
-
-function getWalkers(body, db){
+function getWalkers(db){
   return db('walkers')
     .select('*')
 }

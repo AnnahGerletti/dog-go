@@ -55,12 +55,13 @@ export const addWalkerRequest = (walker) => {
   }
 }
 
-export function postWalkerRequest (walker) {
+export function postWalkerRequest (walker, cb) {
   return (dispatch) => {
     console.log("Action:", walker)
     return request('post', '/walkers', walker)
       .then(res => {
         dispatch(addWalkerRequest(res.body))
+        cb()
       })
       .catch(err => {
         console.error(err.message)
@@ -75,33 +76,14 @@ export const addOwnerRequest = (owner) => {
     owner
   }
 }
-export function postOwnerRequest (owner) {
+export function postOwnerRequest (owner, cb) {
   return (dispatch) => {
     return request('post', '/owners', owner)
       .then(res => {
         dispatch(addOwnerRequest(res.body))
+        cb()
       })
       .catch(err => {
-        console.error(err.message)
-        return
-      })
-  }
-}
-
-export const addDogDetails = (dog) => {
-  return{
-    type: 'ADD_DOG',
-    dog
-  }
-}
-
-export function postDogDetails (dog) {
-  return(dispatch) => {
-    return request('post', '/dogs', dog)
-      .then(res =>{
-        dispatch(addDogDetails(res.body))
-      })
-      .catch(err =>{
         console.error(err.message)
         return
       })

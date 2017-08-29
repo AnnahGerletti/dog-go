@@ -10,7 +10,7 @@ setupDb(test, createServer)
 
 test.cb('GET /', t => {
   request(t.context.app)
-    .get('/api/v1/authenticate')
+    .get('/authenticate')
     .end((err,res) => {
       //console.log("res : ",res.body, res.status)
       if (err) console.log(err)

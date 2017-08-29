@@ -4,7 +4,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('owners').insert([
-        {id: 1, name: "Tintin", address: "26 Labrador Road", phone:"555-5526", postCode:"6011", email:"tintin@example.com", user_id:"3"}
+        {id: 1, name: "Tintin", address: "26 Holloway Road", phone:"555-5526", postCode:"6011", email:"tintin@example.com",lat:"-41.293459",lng:"174.760494", user_id:"3"},
+        {id: 2, name: "Tom", address: "178 Wakefield St", phone:"555-5526", postCode:"6011", email:"tom@example.com",lat:"-41.291173",lng:"174.779133", user_id:"4"}
+
       ]);
     });
 };

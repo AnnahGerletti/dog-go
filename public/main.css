@@ -19,6 +19,8 @@ a, .button, button {
   border-radius: 10px;
   text-decoration: none;
   margin-left: 30px;
+  margin-left: 0!important;
+  width: inherit;
 }
 
 a:hover, .button:hover, button:hover {
@@ -45,7 +47,6 @@ input {
   color: #000;
   max-width: 600px;
 }
-
 /*Headers*/
 .title {
   font-family: 'Lobster', cursive;
@@ -86,6 +87,13 @@ input {
 
 }
 
+.quote {
+    margin: 30px;
+}
+.dog{
+margin-top: 100px
+}
+
 /*Buttons */
 .NoLeftButton {
   margin-left: 0!important;
@@ -124,7 +132,7 @@ input {
 /*footers*/
 /*.footer {
   position: absolute;
-  bottom: 0;
+  bottom: -150;
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
