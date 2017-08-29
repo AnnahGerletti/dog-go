@@ -24,4 +24,6 @@ router.post('/:dog_id', (req, res) => {
     })
 })
 
+//router.get('')
+
 module.exports = router
