@@ -11,6 +11,7 @@ import DogForm from './DogForm'
 import ReceiveWalk from './ReceiveWalk'
 import Accounts from './Accounts'
 import MapWalkers from './MapWalkers'
+import MapContainer from "./MapContainer"
 
 const App = () => {
   return (
