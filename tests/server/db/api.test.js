@@ -1,10 +1,10 @@
 const test = require('ava')
 const request = require('supertest')
 
-const server = require('../../../server/server')
+const app = require('../../../server/server')
 
-test.cb.only('Authenticate complains about no credentials', t => {
-  request(server)
+test.cb('Authenticate complains about no credentials', t => {
+  request(app)
     .post('/api/v1/authenticate')
     .send({})
     .expect(403)

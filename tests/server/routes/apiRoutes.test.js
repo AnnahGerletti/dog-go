@@ -7,7 +7,7 @@ var setupDb = require('../setup-db')
 
 setupDb(test, createServer)
 
-test.cb.only('register a user sends a token', (t) => {
+test.cb('register', (t) => {
   request(t.context.app)
     .post('/api/v1/register')
     .send({username: 'bobs', password: 'b'})
