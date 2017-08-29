@@ -46,7 +46,7 @@ class MapContainer extends React.Component {
               }}/>
           }
         })}
-        {dog &&  <p title={dog.dog_name}>Dog Name:{dog.dog_name}| Dog breed:{dog.breed}| Dog owner:{dog.owner_name} | Address:{dog.address}| Phone:{dog.phone}</p>
+        {dog &&  <p title={dog.dog_name}>Dog Name:{dog.dog_name}| Dog breed:{dog.breed}| Dog owner:{dog.owner_name} | Address:{dog.address}| Phone:{dog.phone}<br/><a className="accept" href="/">Accept Request.</a></p>
          }
       </Map>
     </div>
