@@ -8,10 +8,11 @@ receiveDogsAction(dogs) {
   }
 }
 
-export function receiveOwnersRequest (owner) {
+export function receiveOwnersRequest () {
   return dispatch => {
-    return request('get', '/owners', owner)
+    return request('get', '/owners/all')
       .then(res => {
+        console.log('body', res.body)
         dispatch(receiveDogsAction(res.body))
       })
       .catch(err => {
@@ -28,11 +29,12 @@ export function ownerWalkRequest(request) {
   }
 }
 
-export function sendWalkRequest (dog_id) {
+export function sendWalkRequest (dog_id, cb) {
   return dispatch => {
     return request('post', '/walkrequest/' + dog_id)
       .then(res => {
         dispatch(ownerWalkRequest(res.body))
+        cb()
       })
       .catch(err => {
         console.error(err.message)
