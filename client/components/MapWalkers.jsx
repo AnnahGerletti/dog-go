@@ -53,7 +53,7 @@ class MapContainer extends React.Component {
                 return <li  key={k} title={dog.dog_name} position={{
                     lat: Number(dog.lat),
                     lng: Number(dog.lng)
-                  }}>{dog.dog_name}</li>
+                  }}>| Dog Name:{dog.dog_name}| Dog breed:{dog.breed}| Dog owner:{dog.owner_name} | Address:{dog.address}| Phone:{dog.phone}  </li>
               }
             })}
           </ul>}
