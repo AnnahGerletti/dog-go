@@ -32,7 +32,7 @@ test.cb('GET api/v1/walkers, contains walkers', (t)=> {
     })
 })
 
-test.cb.only('POST /api/v1/walkes receives a new walker', t => {
+test.cb('POST /api/v1/walkes receives a new walker', t => {
   request(t.context.app)
     .post('/api/v1/walkers')
     .set(`Authorization`, `Bearer ${createToken({id: 3, name:
@@ -55,5 +55,35 @@ test.cb('GET /api/v1/dogs, contains dogs', t => {
     .end((err, res) => {
       t.is(res.body.length > 0, true)
       t.end()
+    })
+})
+
+test.cb('POST /api/v1/dogs receives a new dog', t => {
+  request(t.context.app)
+    .post('/api/v1/dogs')
+    .set(`Authorization`, `Bearer ${createToken({id: 4, name: 'Red'}, process.env.JWT_SECRET)}`)
+    .send({name: 'Red'})
+    .end((err, res) => {
+      t.context.db('dogs')
+        .then(data => {
+          t.is(data.length, 2)
+          t.is(data[1].name, 'Red')
+          t.end()
+        })
+
+    })
+})
+
+test.cb.only('GET /api/v1/owners shows all walkers', t => {
+  request(t.context.app)
+    .get('/api/v1/owners')
+    .set(`Authorization`, `Bearer ${createToken({}, process.env.JWT_SECRET)}`)
+    .end((err, res) => {
+      t.context.db('owners')
+        .then(data => {
+          console.log(data);
+          t.pass()
+          t.end()
+        })
     })
 })
