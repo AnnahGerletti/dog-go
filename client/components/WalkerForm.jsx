@@ -78,7 +78,7 @@ class WalkerForm extends React.Component {
           console.log("Focused!");
         },
         autoFocus: true,
-        placeholder: "Search Places",
+        placeholder: "Address",
         name: "Demo__input",
         id: "my-input-id"
       }
@@ -88,12 +88,12 @@ class WalkerForm extends React.Component {
         <h1>Sign up as a Walker</h1>
         <form className='walkerForm'>
           <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
-            <PlacesAutocomplete
+            <p><PlacesAutocomplete
                 autocompleteItem={AutocompleteItem}
                 inputProps={inputProps}
                 googleLogo={false}
                 name="address"
-              />
+              /></p>
           <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
           <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>

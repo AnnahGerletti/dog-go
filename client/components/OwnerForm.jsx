@@ -78,7 +78,7 @@ class OwnerForm extends React.Component {
           console.log("Focused!");
       },
       autoFocus: true,
-      placeholder: "Search Places",
+      placeholder: "Address",
       name: "Demo__input",
       id: "my-input-id"
     }
@@ -87,7 +87,6 @@ class OwnerForm extends React.Component {
       <div className='ownerForm'>
         <h1>Sign up as an Owner</h1>
         <form className='ownerForm'>
-          <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
             <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
               <PlacesAutocomplete
                   autocompleteItem={AutocompleteItem}
