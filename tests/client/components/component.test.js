@@ -2,12 +2,12 @@ import React from 'react'
 var test = require('ava')
 import '../setup-dom'
 import {Component} from 'react'
-
-import jsdom from 'jsdom'
 import { shallow } from 'enzyme'
+import jsdom from 'jsdom'
 
 
-import App from '../../client/components/App'
+
+import App from '../../../client/components/App'
 
 // const path = require('path')
 // const appPath = path.resolve

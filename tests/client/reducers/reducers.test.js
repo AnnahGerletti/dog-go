@@ -5,19 +5,19 @@ import walkers from '../../../client/reducers/walkers'
 import owners from '../../../client/reducers/owners'
 import dogs from '../../../client/reducers/dogs'
 
-test('initial state empty', t => {
+test('walkers state empty', t => {
   const expected = []
   const actual = walkers(undefined, {})
   t.deepEqual(actual, expected)
 })
 
-test('initial state empty', t => {
+test('dogs state empty', t => {
   const expected = []
   const actual = dogs(undefined, {})
   t.deepEqual(actual, expected)
 })
 
-test('initial state empty', t => {
+test('owners state empty', t => {
   const expected = []
   const actual = owners(undefined, {})
   t.deepEqual(actual, expected)
@@ -55,7 +55,7 @@ test('state adds a dog', t => {
     dog: {name: 'spot'}
   }
   const expected = [{name: 'spot'}]
-  const actual = register(state, action)
+  const actual = dogs(state, action)
 
   t.deepEqual(actual, expected)
 })
