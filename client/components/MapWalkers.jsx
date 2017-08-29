@@ -1,7 +1,8 @@
 import React from 'react'
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 import {connect} from 'react-redux'
-import {receiveOwnersRequest} from '../actions/owners'
+
+import {receiveOwnersRequest, receiveWalkRequest} from '../actions/owners'
 
 
 
@@ -16,9 +17,12 @@ class MapContainer extends React.Component {
   }
   componentDidMount() {
     this.props.dispatch(receiveOwnersRequest())
+    this.props.dispatch(receiveWalkRequest())
   }
 
   render() {
+    const { owners } = this.props
+    console.log('owners', owners);
     const {DogToShowId} = this.state
     const dog = this.props.dogs.find((dog) => dog.id == DogToShowId )
     return (
@@ -44,7 +48,7 @@ class MapContainer extends React.Component {
                 }}/>
             }
           })}
-          {dog &&  <p title={dog.dog_name}>Dog Name:{dog.dog_name}| Dog breed:{dog.breed}| Dog owner:{dog.owner_name} | Address:{dog.address}| Phone:{dog.phone}</p>
+          {DogToShowId &&  <p title={dog.name}>Dog Name:{dog.dog_name}| Dog breed:{dog.breed}| Dog owner:{dog.owner_name} | Address:{dog.address}| Phone:{dog.phone}<a href=''>Walk this dog</a> </p>
            }
         </Map>
       </div>
@@ -58,7 +62,8 @@ const WrappedComponent = GoogleApiWrapper({
 
 function mapStateToProps(state) {
   return {
-    dogs: state.dogs
+    dogs: state.dogs,
+    owners: state.owners
   }
 }
 export default connect(mapStateToProps)(WrappedComponent)
