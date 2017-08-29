@@ -30,7 +30,6 @@ class WalkRequest extends React.Component {
         showSuccessMessage: true,
         applicationAccepted: false
       })
-
     }))
   }
 

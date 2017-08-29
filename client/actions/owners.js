@@ -10,7 +10,7 @@ receiveDogsAction(dogs) {
 
 export function receiveOwnersRequest () {
   return dispatch => {
-    return request('get', '/owners/all')
+    return request('get', '/owners')
       .then(res => {
         console.log('body', res.body)
         dispatch(receiveDogsAction(res.body))
@@ -25,8 +25,7 @@ export function receiveOwnersRequest () {
 export function ownerWalkRequest(request) {
   return {
     type: 'SEND_WALK_REQUEST',
-    request,
-    requestAccepted: false
+    request
   }
 }
 
