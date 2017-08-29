@@ -11,7 +11,7 @@ function Accounts (props) {
   return <div>
     <br />
     {user.isWalker
-      ? <Link to="/gowalking">Walker View</Link>
+      ? <Link to="/mapwalkers">Walker View</Link>
       : <Link to="/register/walker">Register as Walker</Link>
     }
     {user.isOwner

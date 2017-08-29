@@ -24,7 +24,7 @@ export function receiveOwnersRequest () {
 
 export function ownerWalkRequest(request) {
   return {
-    type: 'SEND_REQUEST',
+    type: 'SEND_WALK_REQUEST',
     request
   }
 }

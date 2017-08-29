@@ -10,13 +10,13 @@ router.get('/', (req, res) => {
     .then(dogs => res.json(dogs))
 })
 
-router.get('/all', (req, res) => {
-  var db = req.app.get('db')
-  var user_id = req.user.id
-  ownerDb.getOwnerWithDog(db)
-    .then(owners => res.json(owners))
-
-})
+// router.get('/all', (req, res) => {
+//   var db = req.app.get('db')
+//   var user_id = req.user.id
+//   ownerDb.getOwnerWithDog(db)
+//     .then(owners => res.json(owners))
+//
+// })
 
 router.post('/', (req, res) => {
   var db = req.app.get('db')
