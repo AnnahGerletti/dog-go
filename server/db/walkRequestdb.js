@@ -6,7 +6,9 @@ function requestWalk(dog_id, db) {
 function getWalkRequest(db) {
   return db('walkRequest')
     .join('dogs', 'dogs.id', '=', 'walkRequest.dog_id' )
+    .select('dogs.*','dogs.name as dog_name')
     .join('owners', 'owners.id', '=', 'dogs.owner_id' )
+    .select('owners.*','owners.name as owner_name')
     .select('*')
 }
 

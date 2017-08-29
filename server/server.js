@@ -35,7 +35,7 @@ server.use('/api/v1/', apiRoutes)
 //   auth.handleError
 // )
 
-//server.use(authRoutes)
+server.use(authRoutes)
 server.use('/api/v1/walkers', walkerRoute)
 server.use('/api/v1/owners', ownerRoute)
 server.use('/api/v1/dogs', dogRoute)
