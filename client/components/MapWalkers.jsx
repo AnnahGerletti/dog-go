@@ -10,23 +10,17 @@ class MapContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showDog: false
+      DogToShowId: undefined
     }
     console.log(props.google)
   }
   componentDidMount() {
     this.props.dispatch(receiveOwnersRequest())
   }
-  onMarkerClick(props){
-    this.setState({
-      showDog: !this.state.showDog
-    })
-    console.log("hello");
-    console.log("===>", props);
-  }
-  render() {
 
-    const {showDog} = this.state
+  render() {
+    const {DogToShowId} = this.state
+    const dog = this.props.dogs.find((dog) => dog.id == DogToShowId )
     return (
       <div>
         <h2>map</h2>
@@ -41,22 +35,17 @@ class MapContainer extends React.Component {
         }}>
           {this.props.dogs.map((dog, k) => {
             if (dog.lat && dog.lng) {
-              return <Marker key={k} onClick={this.onMarkerClick.bind(this)} title={dog.dog_name} position={{
+              let handleClick = () => {
+                this.setState({DogToShowId: dog.id})
+              }
+              return <Marker key={k} onClick={handleClick} title={dog.dog_name}  position={{
                   lat: Number(dog.lat),
                   lng: Number(dog.lng)
                 }}/>
             }
           })}
-          {showDog && <ul>
-            {this.props.dogs.map((dog, k) => {
-              if (dog.lat && dog.lng) {
-                return <li  key={k} title={dog.dog_name} position={{
-                    lat: Number(dog.lat),
-                    lng: Number(dog.lng)
-                  }}>| Dog Name:{dog.dog_name}| Dog breed:{dog.breed}| Dog owner:{dog.owner_name} | Address:{dog.address}| Phone:{dog.phone}  </li>
-              }
-            })}
-          </ul>}
+          {dog &&  <p title={dog.dog_name}>Dog Name:{dog.dog_name}| Dog breed:{dog.breed}| Dog owner:{dog.owner_name} | Address:{dog.address}| Phone:{dog.phone}</p>
+           }
         </Map>
       </div>
     );
