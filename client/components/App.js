@@ -24,13 +24,11 @@ const App = () => {
           <div>
             <Route exact path='/' component={Home} />
             <Route exact path="/accounts" component={Accounts} />
-            <Route exact path='/MapWalkers' component={MapWalkers} />
             <Route exact path='/walkrequest' component={WalkRequest} />
             <Route exact path='/register/walker' component={WalkerForm} />
             <Route exact path='/register/owner' component={OwnerForm} />
             <Route exact path= '/register/dog' component={DogForm} />
-            <Route exact path='/gowalking' component={ReceiveWalk} />
-            <Route exact path='/mapcontainer'component={MapContainer} />
+            <Route exact path='/MapWalkers' component={MapWalkers} />
           </div>
         </Router>
       </div>
