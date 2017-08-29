@@ -130,8 +130,7 @@ margin-top: 100px
 }
 
 /*footers*/
-.footer {
-  display: none!important;
+/*.footer {
   position: absolute;
   bottom: -150;
   width: 100%;
@@ -140,7 +139,7 @@ margin-top: 100px
   text-align: center;
   background-color: #fff;
   color: #000;
-}
+}*/
 
 
 /*@media queries */

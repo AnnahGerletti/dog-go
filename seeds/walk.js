@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('walk').insert([
-        {id: 1,location:"Nightingale Road", time: "12.30", status:"out", walker_id:"John", owner_id:"Tintin", dog_id:""}
+        {id: 1,location:"Nightingale Road", time: "12.30", status:"out", walker_id: 1, owner_id:1, dog_id:1}
       ]);
     });
 };
