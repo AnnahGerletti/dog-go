@@ -18,10 +18,14 @@ class MapContainer extends React.Component {
     this.props.dispatch(receiveOwnersRequest())
   }
   onMarkerClick(props){
+    this.setState({
+      showDog: !this.state.showDog
+    })
     console.log("hello");
     console.log("===>", props);
   }
   render() {
+
     const {showDog} = this.state
     return (
       <div>
@@ -37,31 +41,23 @@ class MapContainer extends React.Component {
         }}>
           {this.props.dogs.map((dog, k) => {
             if (dog.lat && dog.lng) {
-              return <Marker key={k} onClick={this.onMarkerClick} title={dog.dog_name} name={'place.place'} position={{
+              return <Marker key={k} onClick={this.onMarkerClick.bind(this)} title={dog.dog_name} position={{
                   lat: Number(dog.lat),
                   lng: Number(dog.lng)
                 }}/>
             }
           })}
+          {showDog && <ul>
+            {this.props.dogs.map((dog, k) => {
+              if (dog.lat && dog.lng) {
+                return <li  key={k} title={dog.dog_name} position={{
+                    lat: Number(dog.lat),
+                    lng: Number(dog.lng)
+                  }}>{dog.dog_name}</li>
+              }
+            })}
+          </ul>}
         </Map>
-
-
-
-<ul>
-  {this.props.dogs.map((dog, k) => {
-    if (dog.lat && dog.lng) {
-      return <li title={dog.dog_name} name={'place.place'} position={{
-          lat: Number(dog.lat),
-          lng: Number(dog.lng)
-        }}>{dog.dog_name}</li>
-    }
-  })}
-  </ul>
-
-
-
-
-
       </div>
     );
   }
