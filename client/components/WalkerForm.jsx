@@ -10,12 +10,12 @@ class WalkerForm extends React.Component {
   constructor (props){
     super (props)
     this.state={
-      newWalker: {},
-      place: {
-        place: "",
+      newWalker: {
+        address: "",
         lat: "",
         lng: ""
       },
+
       address: "",
       geocodeResults: null,
       loading: false
@@ -26,11 +26,12 @@ class WalkerForm extends React.Component {
   }
   handleChange(e) {
     const newWalker = this.state.newWalker
-    console.log(e.target)
+    //console.log(e.target)
     newWalker[e.target.name] = e.target.value
     this.setState({
       newWalker: newWalker
     })
+    console.log(this.state.newWalker)
   }
 
   handleSelect() {
@@ -38,11 +39,11 @@ class WalkerForm extends React.Component {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        let { place } = this.state;
-        place["lat"] = lat;
-        place["lng"] = lng;
-        place["place"] = address;
-        this.setState({ place });
+        let { newWalker } = this.state;
+        newWalker["lat"] = lat;
+        newWalker["lng"] = lng;
+        newWalker["address"] = address;
+        this.setState({ newWalker });
       })
       .catch(error => {
         console.log("Oh no!", error);
@@ -51,8 +52,6 @@ class WalkerForm extends React.Component {
           loading: false
         })
       })
-      console.log(this.state.place)
-
   }
 
   submitWalker(e){
