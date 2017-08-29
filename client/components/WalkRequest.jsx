@@ -8,7 +8,8 @@ class WalkRequest extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showWalk: false
+      showWalk: false,
+      showSuccessMessage: false
     }
   }
 
@@ -23,7 +24,12 @@ class WalkRequest extends React.Component {
   }
 
   submitWalkRequest(dog) {
-    this.props.dispatch(sendWalkRequest(dog.id))
+    this.props.dispatch(sendWalkRequest(dog.id, () => {
+      this.setState({
+        showSuccessMessage: true
+      })
+
+    }))
   }
 
   render() {
@@ -40,6 +46,9 @@ class WalkRequest extends React.Component {
                 </li>})}
 
           </ul>
+          {this.state.showSuccessMessage && <div>
+            Your request has been sent!
+          </div>}
       </div>
       </div>
     )

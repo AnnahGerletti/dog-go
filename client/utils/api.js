@@ -15,7 +15,6 @@ export default function consume (method = 'get', endpoint, data = {}) {
   if (isAuthenticated()) {
     headers['Authorization'] = `Bearer ${token}`
   }
-  console.log("Baseurl + endpoint", baseUrl + endpoint )
   return request[method](baseUrl + endpoint)
     .set(headers)[dataMethod](data)
     .then((res) => {

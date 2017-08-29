@@ -35,14 +35,11 @@ function exists (username, testDb) {
 function confirm (username, password, testDb){
   const connection = testDb || knex
   const hash = crypto.getHash(password)
-  console.log(password)
-  console.log(hash)
   return connection('users')
     .select()
     .where('username', username)
     .first()
     .then((user) => {
-      console.log(user)
       if(crypto.verifyUser(user, password))
       {
         return user

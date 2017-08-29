@@ -21,7 +21,6 @@ router.post('/authenticate',
 )
 
 function register (req, res, next) {
-  console.log('hi')
   users.exists(req.body.username, req.app.get('db'))
     .then(exists => {
       if (exists) {
@@ -42,7 +41,6 @@ function login (req, res, next) {
       if (exists) {
         users.confirm(req.body.username, req.body.password, req.app.get('db'))
         .then((user) => {
-          console.log(user)
           if(user){
             // document.location('/#/accounts')
             next()

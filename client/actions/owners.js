@@ -28,11 +28,12 @@ export function ownerWalkRequest(request) {
   }
 }
 
-export function sendWalkRequest (dog_id) {
+export function sendWalkRequest (dog_id, cb) {
   return dispatch => {
     return request('post', '/walkrequest/' + dog_id)
       .then(res => {
         dispatch(ownerWalkRequest(res.body))
+        cb()
       })
       .catch(err => {
         console.error(err.message)
