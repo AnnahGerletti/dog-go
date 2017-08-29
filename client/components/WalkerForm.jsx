@@ -31,7 +31,7 @@ class WalkerForm extends React.Component {
     this.setState({
       newWalker: newWalker
     })
-    console.log(this.state.newWalker)
+    //console.log(this.state.newWalker)
   }
 
   handleSelect() {
