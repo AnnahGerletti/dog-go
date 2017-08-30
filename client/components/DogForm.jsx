@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, HashRouter as Router} from 'react-router-dom'
 import {postDogDetails} from '../actions/dogs'
 
 class DogForm extends React.Component {
@@ -36,7 +36,7 @@ class DogForm extends React.Component {
           <p><input name="colour" placeholder='colour' onChange={this.handleChange} value={colour} /></p>
           <p><input type="submit" /></p>
         </form>
-        <Link to="/register">Cancel</Link>
+        <Router><Link to="/register">Cancel</Link></Router>
       </div>
     )
   }
