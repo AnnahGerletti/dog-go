@@ -15,25 +15,23 @@ import MapContainer from "./MapContainer"
 
 const App = () => {
   return (
+    <Router>
     <div className="container">
       <div className="logo"></div>
       <h1 className="title">Dog-Go</h1>
-    <Navbar />
+      <Navbar />
       <div className='quote'>
-        <Router>
-          <div>
-            <Route exact path='/' component={Home} />
-            <Route exact path="/accounts" component={Accounts} />
-            <Route exact path='/walkrequest' component={WalkRequest} />
-            <Route exact path='/register/walker' component={WalkerForm} />
-            <Route exact path='/register/owner' component={OwnerForm} />
-            <Route exact path= '/register/dog' component={DogForm} />
-            <Route exact path='/MapWalkers' component={MapWalkers} />
-          </div>
-        </Router>
+        <Route exact path='/' component={Home} />
+        <Route exact path="/accounts" component={Accounts} />
+        <Route exact path='/walkrequest' component={WalkRequest} />
+        <Route exact path='/register/walker' component={WalkerForm} />
+        <Route exact path='/register/owner' component={OwnerForm} />
+        <Route exact path= '/register/dog' component={DogForm} />
+        <Route exact path='/MapWalkers' component={MapWalkers} />
       </div>
       <div className="footer">By Mike Keogh, Annah Gerletti, Anthony Martin <br/> and Tom Revill.</div>
     </div>
+  </Router>
   )
 }
 // <Route exact path='/register' component={Register} />

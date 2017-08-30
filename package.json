@@ -9,6 +9,8 @@
     "postinstall": "knex migrate:latest && webpack",
     "test": "ava --v",
     "test:client": "ava  -v --serial tests/client/**/*.test.js",
+    "test:components": "ava  -v --serial tests/client/components/*.test.js",  
+    "test:reducers": "ava  -v --serial tests/client/reducers/*.test.js",
     "test:server": "ava  -v --serial tests/server/**/*.test.js",
     "test:routes": "ava  -v --serial tests/server/routes/*.test.js",
     "test:db": "ava  -v --serial tests/server/db/*.test.js",
