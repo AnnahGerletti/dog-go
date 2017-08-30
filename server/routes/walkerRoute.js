@@ -9,6 +9,9 @@ router.get('/', (req, res) => {
     .then(function(data){
         res.json(data)
     })
+    .catch((err) => {
+      res.status(500).send(err.message)
+    })
 })
 
 router.post('/', (req, res) => {
@@ -30,6 +33,9 @@ router.get('/:id', (req, res) => {
   walkerdb.getWalker(id, db)
   .then(function(data){
     res.json(data)
+  })
+  .catch((err) => {
+    res.status(500).send(err.message)
   })
 })
 
