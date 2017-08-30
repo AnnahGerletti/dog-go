@@ -26,12 +26,10 @@ class WalkerForm extends React.Component {
   }
   handleChange(e) {
     const newWalker = this.state.newWalker
-    //console.log(e.target)
     newWalker[e.target.name] = e.target.value
     this.setState({
       newWalker: newWalker
     })
-    //console.log(this.state.newWalker)
   }
 
   handleSelect() {
@@ -46,7 +44,7 @@ class WalkerForm extends React.Component {
         this.setState({ newWalker });
       })
       .catch(error => {
-        console.log("Oh no!", error);
+        console.error("Oh no!", error);
         this.setState({
           geocodeResults: this.renderGeocodeFailure(error),
           loading: false
@@ -75,7 +73,6 @@ class WalkerForm extends React.Component {
         onChange: this.setAddress,
         onBlur: this.handleSelect,
         onFocus: () => {
-          console.log("Focused!");
         },
         autoFocus: true,
         placeholder: "Address",
@@ -85,10 +82,9 @@ class WalkerForm extends React.Component {
 
 
     return(
-      <div>
-
+      <div className='walkerForm'>
         <h1>Sign up as a Walker</h1>
-        <form className='walkerForm'>
+        <form>
           <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
             <p>{window.google ? <PlacesAutocomplete
                 autocompleteItem={AutocompleteItem}
@@ -101,7 +97,8 @@ class WalkerForm extends React.Component {
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
           <p><input type="submit" onClick={this.submitWalker.bind(this)}/></p>
         </form>
-        <Link to="/register" className="NoLeftButton">Cancel</Link>
+        <br/>
+        <Link to="/register">Cancel</Link>
 
       </div>
     )

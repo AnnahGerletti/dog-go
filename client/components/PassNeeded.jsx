@@ -20,17 +20,18 @@ class PassNeeded extends React.Component {
     this.props.dispatch(loginUser(this.state, () => document.location = "/#/accounts"))
   }
   render() {
-    return <form onSubmit={this.submitDetails}>
-      <label>Enter your password again please
-        <input type="password" placeholder="password" onChange={this.updatePassword} />
+    return <div className="PassNeeded"><form onSubmit={this.submitDetails}>
+      <label>Enter your password again please<br/><br/><br/>
+        <input className="PassNeededImput" type="password" placeholder="password" onChange={this.updatePassword} />
       </label>
+      <br/><br/>
       <input type="submit" />
     </form>
+    </div>
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {auth: state.auth}
 }
 

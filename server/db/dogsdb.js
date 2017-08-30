@@ -1,5 +1,5 @@
 function insertDogs (dog ,db) {
-  return db ('dogs')
+  return db('dogs')
     .insert(dog)
 }
 

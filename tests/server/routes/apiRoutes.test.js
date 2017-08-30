@@ -1,6 +1,5 @@
 import test from 'ava'
 import request from 'supertest'
-
 var createServer = require('../../../server/server')
 var walkerDb = require('../../../server/db/walkerdb')
 var setupDb = require('../setup-db')

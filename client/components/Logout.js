@@ -6,7 +6,7 @@ import { logoutUser } from '../actions/logout'
 
 const Logout = (props) => {
   return (
-    <Link to="/" onClick={props.logoutUser} className="loneButton NoLeftButton">Logout
+    <Link to="/" onClick={props.logoutUser} className="LoginLogout">Logout
     </Link>
   )
 }

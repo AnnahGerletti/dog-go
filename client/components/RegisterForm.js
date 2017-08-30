@@ -42,7 +42,7 @@ class RegisterForm extends Component {
   render () {
     const { username, password, confirm } = this.state
     return (
-      <div className="fromPadding">
+      <div className="formPadding">
         <p><input name='username' placeholder='Username'
           onChange={this.handleChange} value={username} /></p>
 

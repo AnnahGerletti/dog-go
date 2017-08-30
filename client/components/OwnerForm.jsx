@@ -43,7 +43,7 @@ class OwnerForm extends React.Component {
         this.setState({ newOwner });
       })
       .catch(error => {
-        console.log("Oh no!", error);
+        console.error("Oh no!", error);
         this.setState({
             geocodeResults: this.renderGeocodeFailure(error),
             loading: false
@@ -75,7 +75,6 @@ class OwnerForm extends React.Component {
       onChange: this.setAddress,
       onBlur: this.handleSelect,
       onFocus: () => {
-          console.log("Focused!");
       },
       autoFocus: true,
       placeholder: "Address",
@@ -86,20 +85,21 @@ class OwnerForm extends React.Component {
     return(
       <div className='ownerForm'>
         <h1>Sign up as an Owner</h1>
-        <form className='ownerForm'>
+        <form onSubmit={this.submitOwner.bind(this)}>
             <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
-              <PlacesAutocomplete
-                  autocompleteItem={AutocompleteItem}
-                  inputProps={inputProps}
-                  googleLogo={false}
-                  name="address"
-                />
+            <p>{window.google ? <PlacesAutocomplete
+                autocompleteItem={AutocompleteItem}
+                inputProps={inputProps}
+                googleLogo={false}
+                name="address"
+              /> : ""}</p>
           <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
           <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
           <p><input type="submit" /></p>
         </form>
-        <Link to="/register"className="NoLeftButton">Cancel</Link>
+        <br/>
+        <Link to="/register">Cancel</Link>
       </div>
     )
   }

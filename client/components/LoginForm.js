@@ -34,7 +34,7 @@ class LoginForm extends Component {
 
   render () {
     return (
-      <form className="fromPadding" onSubmit={this.handleClick} >
+      <form className="formPadding" onSubmit={this.handleClick} >
         <p><input name='username' onChange={this.handleChange} placeholder='Username' /></p>
         <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password' /></p>
         <button type="submit" className="NoLeftButton loneButton">Login</button>

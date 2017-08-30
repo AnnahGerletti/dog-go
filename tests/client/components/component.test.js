@@ -10,16 +10,9 @@ import App from '../../../client/components/App'
 import DogForm from '../../../client/components/DogForm'
 import store from '../../../client/store'
 
-// const path = require('path')
-// const appPath = path.resolve
-// console.log("path location :", path.resolve('.'))
-
 test('Test React component: <App />', t => {
   const wrapper = mount(<Provider store={store}><App/></Provider>)
   t.true(wrapper.find('.container').exists())
-  //const expected = '<Header /><Homes /><Footer />'
-  //var wrapper = shallow(<App />)
-  //t.is(wrapper.text().trim(), expected)
 })
 
 test('Test React component: <DogForm />', t => {

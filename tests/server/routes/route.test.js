@@ -8,15 +8,16 @@ var setupDb = require('../setup-db')
 
 setupDb(test, createServer)
 
-test.cb('POST api/v1/register', t => {
+test.cb('POST api/v1/register, registers a new user', t => {
   request(t.context.app)
     .post('/api/v1/register')
+    .set(`Authorization`, `Bearer ${createToken({}, process.env.JWT_SECRET)}`)
     .send({username: 'bob', password: 'b'})
     .end((err,res) => {
       if (err) console.log(err)
       t.context.db('users')
       .then(data => {
-        t.is(data.username, 'bob')
+        t.is(data[4].username, 'bob')
         t.end()
       })
     })
@@ -32,14 +33,13 @@ test.cb('GET api/v1/walkers, contains walkers', (t)=> {
     })
 })
 
-test.cb('POST /api/v1/walkes receives a new walker', t => {
+test.cb('POST /api/v1/walkers receives a new walker', t => {
   request(t.context.app)
     .post('/api/v1/walkers')
     .set(`Authorization`, `Bearer ${createToken({id: 3, name:
     'Terry'}, process.env.JWT_SECRET)}`)
     .send({name: 'Terry'})
     .end((err, res) => {
-      console.log(res.status, res.text)
       t.context.db('walkers')
         .then(data => {
           t.is(data[2].name, 'Terry')
@@ -62,27 +62,40 @@ test.cb('POST /api/v1/dogs receives a new dog', t => {
   request(t.context.app)
     .post('/api/v1/dogs')
     .set(`Authorization`, `Bearer ${createToken({id: 4, name: 'Red'}, process.env.JWT_SECRET)}`)
-    .send({name: 'Red'})
+    .send({name: 'Redhhh'})
     .end((err, res) => {
       t.context.db('dogs')
         .then(data => {
           t.is(data.length, 2)
-          t.is(data[1].name, 'Red')
+          t.is(data[1].name, 'Redhhh')
           t.end()
         })
 
     })
 })
 
-test.cb.only('GET /api/v1/owners shows all walkers', t => {
+test.cb('GET /api/v1/owners shows all owners', t => {
   request(t.context.app)
     .get('/api/v1/owners')
-    .set(`Authorization`, `Bearer ${createToken({}, process.env.JWT_SECRET)}`)
+    .set(`Authorization`, `Bearer ${createToken({id: 3}, process.env.JWT_SECRET)}`)
+    .end((err, res) => {
+      t.is(res.body.length, 1)
+      t.true(res.body[0].owner_id == 1)
+      t.true(res.body[0].id == 1)
+      t.end()
+    })
+})
+
+test.cb('POST /api/v1/owners posts an owner into db', t => {
+  request(t.context.app)
+    .post('/api/v1/owners')
+    .set(`Authorization`, `Bearer ${createToken({id: 3, name: 'Norma'}, process.env.JWT_SECRET)}`)
+    .send([{id: 3, user_id: 5, name: "Norma"}])
     .end((err, res) => {
       t.context.db('owners')
         .then(data => {
-          console.log(data);
-          t.pass()
+          t.is(data[2].name, "Norma")
+          t.is(data.length, 3)
           t.end()
         })
     })

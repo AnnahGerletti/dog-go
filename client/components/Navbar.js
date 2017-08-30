@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Route, withRouter } from 'react-router-dom'
+import {Link, Route, withRouter } from 'react-router-dom'
 
 import Links from './Links'
 import Logout from './Logout'
@@ -15,6 +15,9 @@ const Navbar = ({ isAuthenticated }) => {
           {!isAuthenticated && (
             <div className="NavContainer">
               <Route exact path='/' render={() => (
+                <Links to='Home' />
+              )} />
+              <Route exact path='/About' render={() => (
                 <Links to='Home' />
               )} />
               <Route path='/login' render={() => (
@@ -32,7 +35,11 @@ const Navbar = ({ isAuthenticated }) => {
             </div>
           )}
           {isAuthenticated &&
-            <Logout />
+            <div className="navContainer">
+
+              <Logout />
+              <Link to="/accounts" className="Accounts">Accounts</Link>
+            </div>
           }
         </div>
       </div>
