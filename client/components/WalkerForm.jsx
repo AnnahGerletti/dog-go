@@ -83,17 +83,19 @@ class WalkerForm extends React.Component {
         id: "my-input-id"
       }
 
+
     return(
       <div>
+
         <h1>Sign up as a Walker</h1>
         <form className='walkerForm'>
           <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
-            <p><PlacesAutocomplete
+            <p>{window.google ? <PlacesAutocomplete
                 autocompleteItem={AutocompleteItem}
                 inputProps={inputProps}
                 googleLogo={false}
                 name="address"
-              /></p>
+              /> : ""}</p>
           <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
           <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>

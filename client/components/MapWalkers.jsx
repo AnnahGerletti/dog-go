@@ -13,7 +13,6 @@ class MapContainer extends React.Component {
     this.state = {
       ownerToShowId: undefined
     }
-    console.log(props.google)
   }
   componentDidMount() {
     // this.props.dispatch(receiveOwnersRequest())
