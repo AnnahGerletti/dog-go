@@ -33,6 +33,10 @@ class WalkRequest extends React.Component {
     }))
   }
 
+  handleClick (e) {
+    document.location = '/#/register/dog'
+  }
+
   render() {
     const {dogs} = this.props
     const {showWalk} = this.state
@@ -40,10 +44,10 @@ class WalkRequest extends React.Component {
       <div className='container'>
         <h2 className='subHeader'>Dog List</h2>
         <div className="dogList">
+          <button onClick={this.handleClick}>Add Another Dog</button>
           <ul>
               {dogs.map((dog, i) => {
                 return <li key={i}><button className="dogWalk loneButton" onClick={this.toggleWalk.bind(this)}>Your lovely doggo: <strong>{dog.name}</strong></button>
-                {showWalk && <button className='requestWalk loneButton' onClick={() => this.submitWalkRequest(dog)}>Walk {dog.name}?</button>}
                 </li>})}
 
           </ul>
