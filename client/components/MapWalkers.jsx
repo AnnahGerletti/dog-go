@@ -15,7 +15,6 @@ class MapContainer extends React.Component {
     }
   }
   componentDidMount() {
-    // this.props.dispatch(receiveOwnersRequest())
     this.props.dispatch(getWalkRequestsFR())
   }
 
@@ -61,7 +60,6 @@ const WrappedComponent = GoogleApiWrapper({
 })(MapContainer)
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     walkRequests: state.walkRequests
   }
