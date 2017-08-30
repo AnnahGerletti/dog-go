@@ -2,7 +2,7 @@ import React from 'react'
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 import {connect} from 'react-redux'
 
-import {receiveOwnersRequest, receiveWalkRequest} from '../actions/owners'
+import {getWalkRequestsFR} from '../actions/owners'
 
 
 
@@ -13,16 +13,15 @@ class MapContainer extends React.Component {
     this.state = {
       ownerToShowId: undefined
     }
-    console.log(props.google)
   }
   componentDidMount() {
-    this.props.dispatch(receiveOwnersRequest())
-    this.props.dispatch(receiveWalkRequest())
+    // this.props.dispatch(receiveOwnersRequest())
+    this.props.dispatch(getWalkRequestsFR())
   }
 
   render() {
   const {DogToShowId} = this.state
-  const dog = this.props.dogs.find((dog) => dog.id == DogToShowId )
+  const dog = this.props.walkRequests.find((dog) => dog.id == DogToShowId )
   return (
     <div>
       <h2>Click on a dog to walk!</h2>
@@ -36,7 +35,7 @@ class MapContainer extends React.Component {
         lat: -41.2865,
         lng: 174.7762
       }}>
-        {this.props.dogs.map((dog, k) => {
+        {this.props.walkRequests.map((dog, k) => {
           if (dog.lat && dog.lng) {
             let handleClick = () => {
               this.setState({DogToShowId: dog.id})
@@ -62,8 +61,9 @@ const WrappedComponent = GoogleApiWrapper({
 })(MapContainer)
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
-    dogs: state.owners
+    walkRequests: state.walkRequests
   }
 }
 export default connect(mapStateToProps)(WrappedComponent)

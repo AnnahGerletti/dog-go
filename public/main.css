@@ -147,14 +147,9 @@ a.LoginLogout{
   margin-right: 1%!important;
 }
 
-
-
 a.Accounts{
   margin-left: 1%!important;
 }
-
-
-
 
 input[type="submit"]{
   width: inherit!important;
@@ -175,16 +170,7 @@ input[type="submit"]{
   margin-top: 30%;
 }
 
-/*footers*/
-.footer {
-  bottom: 0%;
-  width: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  text-align: center;
-  background-color: #fff;
-  color: #000;
-}
+
 
 
 /*@media queries */

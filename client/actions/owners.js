@@ -65,3 +65,25 @@ export function receiveWalkRequest() {
       })
   }
 }
+
+//move to walk requests action
+function receiveWalkRequestFR (walkRequests) {
+  return {
+    type: 'RECEIVE_WALK_REQUESTS_FR',
+    walkRequests
+  }
+}
+
+export function getWalkRequestsFR (cb ) {
+  return(dispatch) => {
+    return request('get', '/walkrequest')
+      .then(res =>{
+        dispatch(receiveWalkRequestFR(res.body))
+        if(cb) {cb()}
+      })
+      .catch(err =>{
+        console.error(err.message)
+        return
+      })
+  }
+}

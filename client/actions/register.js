@@ -57,6 +57,7 @@ export const addWalkerRequest = (walker) => {
 
 export function postWalkerRequest (walker, cb) {
   return (dispatch) => {
+    console.log("Action:", walker)
     return request('post', '/walkers', walker)
       .then(res => {
         dispatch(addWalkerRequest(res.body))
