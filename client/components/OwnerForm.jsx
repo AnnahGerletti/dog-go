@@ -86,7 +86,7 @@ class OwnerForm extends React.Component {
     return(
       <div className='ownerForm'>
         <h1>Sign up as an Owner</h1>
-        <form className='ownerForm'>
+        <form>
             <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
               <PlacesAutocomplete
                   autocompleteItem={AutocompleteItem}
@@ -99,7 +99,8 @@ class OwnerForm extends React.Component {
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
           <p><input type="submit" onClick={this.submitOwner.bind(this)} /></p>
         </form>
-        <Link to="/register"className="NoLeftButton">Cancel</Link>
+        <br/>
+        <Link to="/register">Cancel</Link>
       </div>
     )
   }

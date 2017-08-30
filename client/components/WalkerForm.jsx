@@ -101,7 +101,8 @@ class WalkerForm extends React.Component {
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
           <p><input type="submit" onClick={this.submitWalker.bind(this)}/></p>
         </form>
-        <Link to="/register" className="NoLeftButton">Cancel</Link>
+        <br/>
+        <Link to="/register">Cancel</Link>
 
       </div>
     )

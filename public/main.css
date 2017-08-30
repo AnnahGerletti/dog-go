@@ -54,7 +54,7 @@ input {
 
 #PlacesAutocomplete__root {
     width: 59%!important;
-    margin-left: 158px;
+    margin-left: 19%;
     font-size: inherit;
 }
 
@@ -105,8 +105,6 @@ input {
 
 .walkerForm,.ownerForm{
   margin-bottom:20px
-  background-color: rgba(0, 0, 0, 0.3);
-  background: rgba(0, 0, 0, 0.3);
 }
 
 .dog{
