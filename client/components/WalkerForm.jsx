@@ -30,7 +30,6 @@ class WalkerForm extends React.Component {
     this.setState({
       newWalker: newWalker
     })
-    //console.log(this.state.newWalker)
   }
 
   handleSelect() {
@@ -45,7 +44,7 @@ class WalkerForm extends React.Component {
         this.setState({ newWalker });
       })
       .catch(error => {
-        console.log("Oh no!", error);
+        console.error("Oh no!", error);
         this.setState({
           geocodeResults: this.renderGeocodeFailure(error),
           loading: false
@@ -74,7 +73,6 @@ class WalkerForm extends React.Component {
         onChange: this.setAddress,
         onBlur: this.handleSelect,
         onFocus: () => {
-          console.log("Focused!");
         },
         autoFocus: true,
         placeholder: "Address",

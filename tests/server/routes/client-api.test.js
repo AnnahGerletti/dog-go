@@ -10,7 +10,7 @@ setupdb(test, createServer)
 test.cb('Authenticate walkers route', t => {
   request(t.context.app)
     .post('/api/v1/walkers')
-    .set(`Authorization`,`Bearer ${createToken({id:3, username: "Bob"}, process.env.JWT_SECRET)}`)
+    .set(`Authorization`,`Bearer ${createToken({id:3, username:"Bob"}, process.env.JWT_SECRET)}`)
     .send({name: 'mary'})
     .expect(201)
     .end((err, res) => {

@@ -1,5 +1,4 @@
 export default function owners(state = [], action) {
-  // console.log('reducer', action)
   switch (action.type) {
     case 'ADD_OWNER':
       return [...state, action.owner]

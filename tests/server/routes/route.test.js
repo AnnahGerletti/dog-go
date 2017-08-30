@@ -66,7 +66,6 @@ test.cb('POST /api/v1/dogs receives a new dog', t => {
     .end((err, res) => {
       t.context.db('dogs')
         .then(data => {
-          console.log(data);
           t.is(data.length, 2)
           t.is(data[1].name, 'Redhhh')
           t.end()

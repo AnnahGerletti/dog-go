@@ -9,8 +9,9 @@ router.use(bodyParser.json())
 
 // This is the only API route that uses local strategy,
 // to check if we can issue a JWT in response to requests.
-// router.post('/authenticate', auth.issueJwt)
 //
+
+router.post('/authenticate', auth.issueJwt)
 router.post('/register',
   register,
   auth.issueJwt
