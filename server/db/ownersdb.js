@@ -13,12 +13,11 @@ function getDogsByUserId(user_id, db) {
     })
 }
 
-function getOwnerWithDog(owner, db){
+function getOwnerWithDog(db){
   return db('owners')
     .join('dogs', 'dogs.owner_id', '=', 'owners.id')
     .select('owners.*', 'owners.name as owner_name')
-    .select('dogs.*', 'dogs.name as dog_name')
-    .select('dogs.*', 'dogs.id as dog_id')
+    .select('dogs.*', 'dogs.id as dog_id', 'dogs.name as dog_name')
 }
 
 function getOwner(db, id){
@@ -29,7 +28,6 @@ function getOwner(db, id){
 function getOwnerByUserId(db, id) {
   return db('owners')
     .where('user_id', id)
-
 }
 
 

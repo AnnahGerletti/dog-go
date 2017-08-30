@@ -16,9 +16,12 @@ router.post('/register',
   register,
   auth.issueJwt
 )
+router.post('/authenticate',
+  login,
+  auth.issueJwt
+)
 
 function register (req, res, next) {
-  console.log('hi')
   users.exists(req.body.username, req.app.get('db'))
     .then(exists => {
       if (exists) {
@@ -30,6 +33,25 @@ function register (req, res, next) {
     })
     .catch(err => {
       res.status(400).send({ message: err.message })
+    })
+}
+
+function login (req, res, next) {
+  users.exists(req.body.username, req.app.get('db'))
+    .then(exists => {
+      if (exists) {
+        users.confirm(req.body.username, req.body.password, req.app.get('db'))
+        .then((user) => {
+          if(user){
+            // document.location('/#/accounts')
+            next()
+          } else {
+            return res.status(400).send( {message: 'incorrect password'})
+          }
+        })
+      } else {
+        return res.status(400).send( {message: 'User does not exists'})
+      }
     })
 }
 
