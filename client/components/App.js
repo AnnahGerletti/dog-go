@@ -32,10 +32,7 @@ const App = () => {
             <Route exact path='/MapWalkers' component={MapWalkers} />
           </div>
         </Router>
-
-
-        </div>
-      <div className="footer">By Mike Keogh, Annah Gerletti, Anthony Martin <br/> and Tom Revill.</div>
+      </div>
     </div>
   )
 }

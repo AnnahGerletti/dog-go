@@ -17,6 +17,9 @@ const Navbar = ({ isAuthenticated }) => {
               <Route exact path='/' render={() => (
                 <Links to='Home' />
               )} />
+              <Route exact path='/About' render={() => (
+                <Links to='Home' />
+              )} />
               <Route path='/login' render={() => (
                 <div>
                   <Links to='Login' />
@@ -33,8 +36,9 @@ const Navbar = ({ isAuthenticated }) => {
           )}
           {isAuthenticated &&
             <div className="navContainer">
+
               <Logout />
-              <Link to="/accounts" className="LeftButton">Accounts</Link>
+              <Link to="/accounts" className="Accounts">Accounts</Link>
             </div>
           }
         </div>

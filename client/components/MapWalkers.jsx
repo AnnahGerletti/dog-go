@@ -27,8 +27,8 @@ class MapContainer extends React.Component {
     <div>
       <h2>Click on a dog to walk!</h2>
       <Map google={this.props.google} style={{
-        width: '450px',
-        height: '450px',
+        width: '90%',
+        height: '400px',
         position: 'relative',
         margin: '0 auto'}}
         className={'map'} zoom={13} fullscreenControl={true}

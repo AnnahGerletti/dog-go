@@ -52,10 +52,6 @@ input {
   width: inherit!important;
 }
 
-
-
-
-
 /*Headers*/
 .title {
   font-family: 'Lobster', cursive;
@@ -72,7 +68,6 @@ input {
   margin-top: 30px;
 }
 
-
 .AboutCon, .HomeCon, .RegButtonsCon, .formPadding, .walkerForm,.ownerForm, .Con, .PassNeeded{
   width: 45%;
   padding: 25px;
@@ -87,14 +82,11 @@ input {
   margin: 10px auto;
 }
 
-
-
 .HomeCon {
   padding: 50px;
   max-width: 600px;
-  height: 170px;
-
 }
+
 .RegButtonsCon {
   max-width: 200px;
 }
@@ -108,15 +100,11 @@ input {
   margin-bottom:20px
   background-color: rgba(0, 0, 0, 0.3);
   background: rgba(0, 0, 0, 0.3);
-
-
 }
-
 
 .dog{
  margin-top: 100px
 }
-
 
 p.requestCon {
     margin: 0 auto;
@@ -131,6 +119,7 @@ p.requestCon {
 .NoLeftButton {
   margin-left: 0!important;
 }
+
 .loneButton {
   margin-top: 3%;
 }
@@ -146,17 +135,30 @@ p.requestCon {
   display: inline-block;
 }
 
-.LeftButton {
-  margin-left: 15px!important;
+.WalkerReg, .WalkerV  {
+  margin-left: 1%!important;
 }
 
-.RightButton {
-  margin-right: 15px!important;
+.OwnerReg, .OwnerV  {
+  margin-left: 1%!important;
 }
+
+a.LoginLogout{
+  margin-right: 1%!important;
+}
+
+
+
+a.Accounts{
+  margin-left: 1%!important;
+}
+
+
+
+
 input[type="submit"]{
   width: inherit!important;
 }
-
 
 .RegButton {
   margin-top: 10px;
@@ -175,8 +177,7 @@ input[type="submit"]{
 
 /*footers*/
 .footer {
-  position: absolute;
-  bottom: -10%;
+  bottom: 0%;
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;

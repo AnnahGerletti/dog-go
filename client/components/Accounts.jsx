@@ -11,12 +11,12 @@ function Accounts (props) {
   return <div className="ConNoBg">
     <br />
     {user.isWalker
-      ? <Link to="/mapwalkers" className="RightButton">Walker View</Link>
-      : <Link to="/register/walker" className="RightButton">Register as Walker</Link>
+      ? <Link to="/mapwalkers" className="WalkerV">Walker View</Link>
+      : <Link to="/register/walker" className="WalkerReg">Register as Walker</Link>
     }
     {user.isOwner
-      ? <Link to="/walkRequest"className="LeftButton">Owner View</Link>
-      : <Link to="/register/owner">Register as Owner</Link>
+      ? <Link to="/walkRequest"className="OwnerV">Owner View</Link>
+      : <Link to="/register/owner"className="OwnerReg">Register as Owner</Link>
     }
   </div>
 }
