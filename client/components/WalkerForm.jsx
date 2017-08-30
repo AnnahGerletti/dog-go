@@ -85,10 +85,10 @@ class WalkerForm extends React.Component {
 
 
     return(
-      <div>
+      <div className='walkerForm'>
 
         <h1>Sign up as a Walker</h1>
-        <form className='walkerForm'>
+        <form>
           <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
             <p>{window.google ? <PlacesAutocomplete
                 autocompleteItem={AutocompleteItem}
