@@ -3,6 +3,7 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 
 import Navbar from './Navbar'
 import Home from './Home'
+import About from './About'
 import WalkRequest from './WalkRequest'
 import Register from './Register'
 import WalkerForm from './WalkerForm'
@@ -22,6 +23,7 @@ const App = () => {
         <Router>
           <div>
             <Route exact path='/' component={Home} />
+            <Route exact path='/About' component={About} />
             <Route exact path="/accounts" component={Accounts} />
             <Route exact path='/walkrequest' component={WalkRequest} />
             <Route exact path='/register/walker' component={WalkerForm} />
@@ -30,7 +32,9 @@ const App = () => {
             <Route exact path='/MapWalkers' component={MapWalkers} />
           </div>
         </Router>
-      </div>
+
+
+        </div>
       <div className="footer">By Mike Keogh, Annah Gerletti, Anthony Martin <br/> and Tom Revill.</div>
     </div>
   )

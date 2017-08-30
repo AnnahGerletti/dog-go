@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Route, withRouter } from 'react-router-dom'
+import {Link, Route, withRouter } from 'react-router-dom'
 
 import Links from './Links'
 import Logout from './Logout'
@@ -32,7 +32,10 @@ const Navbar = ({ isAuthenticated }) => {
             </div>
           )}
           {isAuthenticated &&
-            <Logout />
+            <div className="navContainer">
+              <Logout />
+              <Link to="/accounts" className="LeftButton">Accounts</Link>
+            </div>
           }
         </div>
       </div>

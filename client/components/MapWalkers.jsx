@@ -25,13 +25,14 @@ class MapContainer extends React.Component {
   const dog = this.props.dogs.find((dog) => dog.id == DogToShowId )
   return (
     <div>
-      <h2>map</h2>
+      <h2>Click on a dog to walk!</h2>
       <Map google={this.props.google} style={{
-        width: '45%',
-        height: '45%',
+        width: '450px',
+        height: '450px',
         position: 'relative',
         margin: '0 auto'}}
-        className={'map'} zoom={13} fullscreenControl={true} containerStyle={{}} initialCenter={{
+        className={'map'} zoom={13} fullscreenControl={true}
+        initialCenter={{
         lat: -41.2865,
         lng: 174.7762
       }}>
@@ -40,13 +41,16 @@ class MapContainer extends React.Component {
             let handleClick = () => {
               this.setState({DogToShowId: dog.id})
             }
-            return <Marker key={k} onClick={handleClick} title={dog.dog_name}  position={{
+            return <Marker key={k} onClick={handleClick} title={dog.dog_name}
+
+
+              position={{
                 lat: Number(dog.lat),
                 lng: Number(dog.lng)
               }}/>
           }
         })}
-        {dog &&  <p title={dog.dog_name}>Dog Name:{dog.dog_name}| Dog breed:{dog.breed}| Dog owner:{dog.owner_name} | Address:{dog.address}| Phone:{dog.phone}<br/><a className="accept" href="/">Accept Request.</a></p>
+        {dog &&  <p className="requestCon"title={dog.dog_name}><strong>Dog Name: </strong> {dog.dog_name} <br/><strong>Dog owner:</strong> {dog.owner_name} <br/><strong>Dog breed:</strong> {dog.breed}<br/><strong>Address: </strong>{dog.address} <br/><strong> Phone: </strong>{dog.phone}<br/><br/><a className="accept" href="/">Accept Request.</a></p>
          }
       </Map>
     </div>
