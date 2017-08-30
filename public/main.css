@@ -52,6 +52,13 @@ input {
   width: inherit!important;
 }
 
+#PlacesAutocomplete__root {
+    width: 59%!important;
+    margin-left: 158px;
+    font-size: inherit;
+}
+
+
 /*Headers*/
 .title {
   font-family: 'Lobster', cursive;
