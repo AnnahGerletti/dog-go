@@ -104,5 +104,8 @@ class OwnerForm extends React.Component {
     )
   }
 }
+const WrappedComponent = GoogleApiWrapper({
+  apiKey: "AIzaSyBtks1ielOp7wqVyIJNevVW-8SrmpSf8Pk"
+})(OwnerForm)
 
-export default connect()(OwnerForm)
+export default connect()(WrappedComponent)
