@@ -26,7 +26,6 @@ class WalkerForm extends React.Component {
   }
   handleChange(e) {
     const newWalker = this.state.newWalker
-    //console.log(e.target)
     newWalker[e.target.name] = e.target.value
     this.setState({
       newWalker: newWalker
@@ -86,7 +85,6 @@ class WalkerForm extends React.Component {
 
     return(
       <div>
-
         <h1>Sign up as a Walker</h1>
         <form className='walkerForm'>
           <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>

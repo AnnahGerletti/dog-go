@@ -88,12 +88,12 @@ class OwnerForm extends React.Component {
         <h1>Sign up as an Owner</h1>
         <form className='ownerForm'>
             <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
-              <PlacesAutocomplete
-                  autocompleteItem={AutocompleteItem}
-                  inputProps={inputProps}
-                  googleLogo={false}
-                  name="address"
-                />
+            <p>{window.google ? <PlacesAutocomplete
+                autocompleteItem={AutocompleteItem}
+                inputProps={inputProps}
+                googleLogo={false}
+                name="address"
+              /> : ""}</p>
           <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
           <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
