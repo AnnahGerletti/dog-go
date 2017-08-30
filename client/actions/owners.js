@@ -12,6 +12,7 @@ export function receiveOwnersRequest () {
   return dispatch => {
     return request('get', '/owners')
       .then(res => {
+        console.log("get dogs request", res.body)
         dispatch(receiveDogsAction(res.body))
       })
       .catch(err => {
