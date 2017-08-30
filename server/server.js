@@ -27,7 +27,7 @@ server.use('/api/v1/owners', ownerRoute)
 server.use('/api/v1/dogs', dogRoute)
 server.use('/api/v1/walkrequest', requestRoutes)
 
-passport.use(new LocalStrategy(auth.verify))
+passport.use(new  LocalStrategy({passReqToCallback: true}, auth.verify))
 
 module.exports = function(db) {
   server.set('db', db)

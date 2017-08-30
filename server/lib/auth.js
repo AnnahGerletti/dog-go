@@ -64,8 +64,8 @@ function issueJwt (req, res, next) {
   )(req, res, next)
 }
 
-function verify (username, password, done) {
-  users.getByName(username)
+function verify (req, username, password, done) {
+  users.getByName(username, req.app.get('db'))
     .then(users => {
       if (users.length === 0) {
         return done(null, false, { message: 'Unrecognised user.' })

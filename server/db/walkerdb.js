@@ -1,19 +1,8 @@
 function insertWalker (walker ,db) {
-  console.log("walker :", walker)
   return db('walkers')
     .select()
     .insert(walker)
 }
-// function create (username, password, testDb) {
-//   const hash = crypto.getHash(password)
-//   const connection = testDb || knex
-//
-//   return connection('users')
-//     .insert({
-//       username: username,
-//       hash: hash
-//     })
-// }
 
 function getWalkers(db){
   return db('walkers')
@@ -24,7 +13,6 @@ function getWalker(id, db){
   return db('walkers')
     .where('id', id)
 }
-
 
 module.exports = {
    insertWalker,

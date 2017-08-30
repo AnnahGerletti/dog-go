@@ -43,7 +43,7 @@ class OwnerForm extends React.Component {
         this.setState({ newOwner });
       })
       .catch(error => {
-        console.log("Oh no!", error);
+        console.error("Oh no!", error);
         this.setState({
             geocodeResults: this.renderGeocodeFailure(error),
             loading: false
@@ -75,7 +75,6 @@ class OwnerForm extends React.Component {
       onChange: this.setAddress,
       onBlur: this.handleSelect,
       onFocus: () => {
-          console.log("Focused!");
       },
       autoFocus: true,
       placeholder: "Address",
