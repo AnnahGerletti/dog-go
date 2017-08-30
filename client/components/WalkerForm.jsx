@@ -110,4 +110,4 @@ const WrappedComponent = GoogleApiWrapper({
   apiKey: "AIzaSyBtks1ielOp7wqVyIJNevVW-8SrmpSf8Pk"
 })(WalkerForm)
 
-export default connect()(WalkerForm)
+export default connect()(WrappedComponent)
