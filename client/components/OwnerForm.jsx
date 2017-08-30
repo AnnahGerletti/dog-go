@@ -1,15 +1,27 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
+import { GoogleApiWrapper } from "google-maps-react";
+
 import {postOwnerRequest} from '../actions/register'
 
 class OwnerForm extends React.Component {
   constructor (props){
     super (props)
     this.state={
-      newOwner: {}
+      newOwner: {
+        address: "",
+        lat: "",
+        lng: ""
+      },
+      address: "",
+      geocodeResults: null,
+      loading: false
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
+    this.setAddress = (address) => (this.setState({address}))
   }
   handleChange(e){
     const newOwner = this.state.newOwner
@@ -17,6 +29,26 @@ class OwnerForm extends React.Component {
     this.setState({
       newOwner: newOwner
     })
+  }
+
+  handleSelect() {
+    let { address } = this.state;
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(({ lat, lng }) => {
+        let { newOwner } = this.state;
+        newOwner["lat"] = lat;
+        newOwner["lng"] = lng;
+        newOwner["address"] = address;
+        this.setState({ newOwner });
+      })
+      .catch(error => {
+        console.log("Oh no!", error);
+        this.setState({
+            geocodeResults: this.renderGeocodeFailure(error),
+            loading: false
+          })
+      })
   }
 
   submitOwner(e){
@@ -28,12 +60,40 @@ class OwnerForm extends React.Component {
 
   render(){
     const {name, address, phone, postCode, email}=this.state
+    const AutocompleteItem = ({ formattedSuggestion }) =>
+        <div className="Demo__suggestion-item">
+          <i className="fa fa-map-marker Demo__suggestion-icon" />
+          <strong>{formattedSuggestion.mainText}</strong>{" "}
+          <small className="text-muted">
+            {formattedSuggestion.secondaryText}
+          </small>
+        </div>
+
+    const inputProps = {
+      type: "text",
+      value: this.state.address,
+      onChange: this.setAddress,
+      onBlur: this.handleSelect,
+      onFocus: () => {
+          console.log("Focused!");
+      },
+      autoFocus: true,
+      placeholder: "Address",
+      name: "Demo__input",
+      id: "my-input-id"
+    }
+
     return(
       <div className='ownerForm'>
         <h1>Sign up as an Owner</h1>
-        <form className='ownerForm' onSubmit={this.submitOwner.bind(this)} >
-          <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
-          <p><input name="address" placeholder="address" onChange={this.handleChange} value={address} /></p>
+        <form className='ownerForm'>
+            <p><input name="name" placeholder="name" onChange={this.handleChange} value={name} /></p>
+              <PlacesAutocomplete
+                  autocompleteItem={AutocompleteItem}
+                  inputProps={inputProps}
+                  googleLogo={false}
+                  name="address"
+                />
           <p><input name="phone" placeholder="phone" onChange={this.handleChange} value={phone} /></p>
           <p><input name="postCode" placeholder="postCode" onChange={this.handleChange} value={postCode} /></p>
           <p><input name="email" placeholder="email" onChange={this.handleChange} value={email} /></p>
@@ -44,5 +104,8 @@ class OwnerForm extends React.Component {
     )
   }
 }
+const WrappedComponent = GoogleApiWrapper({
+  apiKey: "AIzaSyBtks1ielOp7wqVyIJNevVW-8SrmpSf8Pk"
+})(OwnerForm)
 
-export default connect()(OwnerForm)
+export default connect()(WrappedComponent)

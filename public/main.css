@@ -47,7 +47,6 @@ input {
   color: #000;
   max-width: 600px;
 }
-
 /*Headers*/
 .title {
   font-family: 'Lobster', cursive;
@@ -91,6 +90,9 @@ input {
 .quote {
     margin: 30px;
 }
+.dog{
+margin-top: 100px
+}
 
 /*Buttons */
 .NoLeftButton {
@@ -128,8 +130,7 @@ input {
 }
 
 /*footers*/
-.footer {
-  display: none!important;
+/*.footer {
   position: absolute;
   bottom: -150;
   width: 100%;
@@ -138,7 +139,7 @@ input {
   text-align: center;
   background-color: #fff;
   color: #000;
-}
+}*/
 
 
 /*@media queries */
