@@ -3,9 +3,9 @@ exports.up = function(knex, Promise) {
     table.increments('id')
     table.string('name')
     table.string('breed')
-    table.string('age')
+    table.integer('age')
     table.string('colour')
-    table.string('owner_id')
+    table.integer('owner_id')
   })
 };
 
