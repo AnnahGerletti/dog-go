@@ -3,7 +3,7 @@ const request = require('supertest')
 
 const app = require('../../../server/server')
 
-test.cb('Authenticate complains about no credentials', t => {
+test.cb.only('Authenticate complains about no credentials', t => {
   request(app)
     .post('/api/v1/authenticate')
     .send({})
