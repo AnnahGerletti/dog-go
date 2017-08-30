@@ -1,13 +1,28 @@
 import test from 'ava'
 import '../setup-dom'
 // var register = require('../../client/reducers/register')
-import register from '../../client/reducers/register'
+import walkers from '../../../client/reducers/walkers'
+import owners from '../../../client/reducers/owners'
+import dogs from '../../../client/reducers/dogs'
 
-test('initial state empty', t => {
+test('walkers state empty', t => {
   const expected = []
-  const actual = register(undefined, {})
+  const actual = walkers(undefined, {})
   t.deepEqual(actual, expected)
 })
+
+test('dogs state empty', t => {
+  const expected = []
+  const actual = dogs(undefined, {})
+  t.deepEqual(actual, expected)
+})
+
+test('owners state empty', t => {
+  const expected = []
+  const actual = owners(undefined, {})
+  t.deepEqual(actual, expected)
+})
+
 
 test('state adds a walker', t => {
   const state = []
@@ -16,7 +31,7 @@ test('state adds a walker', t => {
     walker: {name: 'timmy'}
   }
   const expected = [{name: 'timmy'}]
-  const actual = register(state, action)
+  const actual = walkers(state, action)
 
   t.deepEqual(actual, expected)
 })
@@ -28,7 +43,7 @@ test('state adds an owner', t => {
     owner: {name:'bob'}
   }
   const expected= [{name: 'bob'}]
-  const actual = register(state, action)
+  const actual = owners(state, action)
 
   t.deepEqual(actual, expected)
 })
@@ -40,7 +55,7 @@ test('state adds a dog', t => {
     dog: {name: 'spot'}
   }
   const expected = [{name: 'spot'}]
-  const actual = register(state, action)
+  const actual = dogs(state, action)
 
   t.deepEqual(actual, expected)
 })

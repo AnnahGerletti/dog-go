@@ -57,7 +57,6 @@ const WrappedComponent = GoogleApiWrapper({
 })(MapContainer)
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     walkRequests: state.walkRequests
   }
